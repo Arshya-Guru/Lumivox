@@ -1,0 +1,72 @@
+[workspace]
+name ="Lumivox"
+version = "0.1.0"
+description = "Lightsheet / OME-Zarr / NGFF environment"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = "3.12.*"
+# ---- core array stack ----
+numpy = "*"
+scipy = "*"
+# ---- Zarr / NGFF ----
+zarr = ">=3.0.8"
+numcodecs = "*"
+fsspec = ">=2026.2.0,<2027"
+crc32c = "*"
+donfig = "*"
+# ---- image IO ----
+tifffile = "*"
+imageio = "*"
+pillow = "*"
+h5py = "*"
+# ---- big-volume tooling ----
+dask = "*"
+dask-image = "*"
+xarray = "*"
+pandas = ">=2.2,<3"
+# ---- viz / napari ----
+napari = ">=0.5.0,<0.6"
+pyqt = "*"
+qtpy = "*"
+# ---- QoL ----
+ipython = "*"
+jupyterlab = "*"
+tqdm = "*"
+rich = "*"
+ipykernel = ">=6.31.0,<7"
+nibabel = ">=5.3.2,<6"
+napari-ome-zarr = ">=0.6.1,<0.7"
+s3fs = ">=2026.2.0,<2027"
+aiohttp = ">=3.13.3,<4"
+matplotlib = ">=3.10.8,<4"
+xmltodict = ">=1.0.3,<2"
+batchgenerators = ">=0.25.1,<0.26"
+
+[pypi-dependencies]
+zarrnii = "==0.15.3a1"
+
+[tasks]
+python = "python"
+napari = "napari"
+lab = "jupyter lab"
+
+# ─────────────────────────────────────────────
+# Features
+# ─────────────────────────────────────────────
+
+[feature.gpu.pypi-dependencies]
+torch = { version = ">=2.10.0,<3", index = "https://download.pytorch.org/whl/cu128" }
+
+[feature.cpu.pypi-dependencies]
+torch = { version = ">=2.10.0,<3", index = "https://download.pytorch.org/whl/cpu" }
+
+# ─────────────────────────────────────────────
+# Environments  (gpu is default / listed first)
+# ─────────────────────────────────────────────
+
+[environments]
+default = { features = ["gpu"], solve-group = "gpu" }
+gpu     = { features = ["gpu"], solve-group = "gpu" }
+cpu     = { features = ["cpu"], solve-group = "cpu" }
