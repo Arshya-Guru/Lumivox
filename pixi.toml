@@ -46,11 +46,24 @@ batchgenerators = ">=0.25.1,<0.26"
 
 [pypi-dependencies]
 zarrnii = "==0.15.3a1"
+pytorch-lightning = ">=2.0"
+dynamic-network-architectures = ">=0.4"
+einops = ">=0.7"
+blosc2 = ">=2.5"
+pytest = ">=7.0"
 
 [tasks]
 python = "python"
 napari = "napari"
 lab = "jupyter lab"
+
+# ---- Lumivox SSL tasks ----
+smoke-simclr = "python -m lumivox.training.pretrain --method simclr --epochs 2 --batch-size 2 --crop-size 16 --num-workers 0 --precision 32"
+smoke-nnbyol3d = "python -m lumivox.training.pretrain --method nnbyol3d --epochs 2 --batch-size 2 --crop-size 16 --num-workers 0 --precision 32"
+smoke-legacy = "python -m lumivox.training.pretrain --method byol3d-legacy --epochs 2 --batch-size 2 --crop-size 16 --num-workers 0 --precision 32"
+pretrain = "python -m lumivox.training.pretrain_lightning"
+finetune = "python -m lumivox.training.finetune"
+test = "python -m pytest tests/ -v"
 
 # ─────────────────────────────────────────────
 # Features
