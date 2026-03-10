@@ -60,6 +60,7 @@ FINETUNE_CONFIG = dict(
     batch_size=2,
     num_epochs=200,
     precision="bf16-mixed",
+    dropout=0.0,  # Dropout on decoder skip connections (0.0 = disabled)
 )
 
 # Mixed precision default

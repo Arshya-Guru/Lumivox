@@ -173,6 +173,7 @@ class SegmentationUNet3D(nn.Module):
         encoder: UNetEncoder3D,
         num_classes: int = 1,
         use_residuals: bool = True,
+        dropout: float = 0.0,
     ):
         super().__init__()
         self.encoder = encoder
@@ -181,9 +182,13 @@ class SegmentationUNet3D(nn.Module):
             num_classes=num_classes,
             use_residuals=use_residuals,
         )
+        self.skip_dropout = nn.Dropout3d(p=dropout) if dropout > 0 else None
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         bottleneck, skips = self.encoder(x, return_skips=True)
+        if self.skip_dropout is not None:
+            bottleneck = self.skip_dropout(bottleneck)
+            skips = [self.skip_dropout(s) for s in skips]
         return self.decoder(bottleneck, skips)
 
     @classmethod
@@ -193,6 +198,7 @@ class SegmentationUNet3D(nn.Module):
         num_classes: int = 1,
         use_residuals: bool = True,
         freeze_encoder: bool = False,
+        dropout: float = 0.0,
     ) -> "SegmentationUNet3D":
         import copy
 
@@ -200,4 +206,4 @@ class SegmentationUNet3D(nn.Module):
         if freeze_encoder:
             for p in encoder.parameters():
                 p.requires_grad = False
-        return cls(encoder=encoder, num_classes=num_classes, use_residuals=use_residuals)
+        return cls(encoder=encoder, num_classes=num_classes, use_residuals=use_residuals, dropout=dropout)

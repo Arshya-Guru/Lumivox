@@ -23,6 +23,33 @@ from lumivox.adaptation.checkpoint_export import extract_encoder_weights
 
 
 # ---------------------------------------------------------------------------
+# Dropout wrapper for ResidualEncoderUNet
+# ---------------------------------------------------------------------------
+
+class DropoutUNetWrapper(nn.Module):
+    """Wraps ResidualEncoderUNet to apply Dropout3d on skip connections.
+
+    Dropout is applied to encoder skip outputs before they enter the decoder,
+    regularizing the randomly-initialized decoder during fine-tuning.
+    """
+
+    def __init__(self, model: nn.Module, dropout_p: float = 0.0):
+        super().__init__()
+        self.model = model
+        self.skip_dropout = nn.Dropout3d(p=dropout_p) if dropout_p > 0 else None
+
+    @property
+    def encoder(self) -> nn.Module:
+        return self.model.encoder
+
+    def forward(self, x: torch.Tensor):
+        skips = self.model.encoder(x)
+        if self.skip_dropout is not None:
+            skips = [self.skip_dropout(s) for s in skips]
+        return self.model.decoder(skips)
+
+
+# ---------------------------------------------------------------------------
 # Loss functions for fine-tuning
 # ---------------------------------------------------------------------------
 
@@ -59,6 +86,7 @@ def build_segmentation_model(
     checkpoint_path: Optional[str] = None,
     num_classes: int = 1,
     deep_supervision: bool = True,
+    dropout: float = 0.0,
 ) -> nn.Module:
     """Build full U-Net for segmentation, optionally loading pretrained encoder.
 
@@ -99,6 +127,10 @@ def build_segmentation_model(
             model.encoder.load_state_dict(encoder_sd, strict=True)
             print(f"Loaded pretrained encoder weights ({model_type})")
 
+        if dropout > 0:
+            model = DropoutUNetWrapper(model, dropout_p=dropout)
+            print(f"Decoder dropout enabled: p={dropout}")
+
         return model
 
     elif model_type == "byol3d-legacy":
@@ -113,7 +145,9 @@ def build_segmentation_model(
         )
         encoder.load_state_dict(encoder_sd)
         print(f"Loaded pretrained legacy encoder weights")
-        return SegmentationUNet3D(encoder=encoder, num_classes=num_classes)
+        if dropout > 0:
+            print(f"Decoder dropout enabled: p={dropout}")
+        return SegmentationUNet3D(encoder=encoder, num_classes=num_classes, dropout=dropout)
 
     else:
         raise ValueError(f"Unknown model type: {model_type}")
@@ -135,6 +169,7 @@ def finetune(
     crop_size: int = 96,
     precision: str = "bf16-mixed",
     deep_supervision: bool = True,
+    dropout: float = 0.0,
     save_dir: str = "./checkpoints/finetune",
     seed: int = 42,
 ) -> nn.Module:
@@ -153,6 +188,7 @@ def finetune(
         checkpoint_path=checkpoint_path,
         num_classes=num_classes,
         deep_supervision=deep_supervision,
+        dropout=dropout,
     )
     model = model.to(device)
 
@@ -265,6 +301,10 @@ def main():
         "--precision", type=str, default="bf16-mixed",
         choices=["32", "16-mixed", "bf16-mixed"],
     )
+    parser.add_argument(
+        "--dropout", type=float, default=0.0,
+        help="Dropout3d rate on decoder skip connections (0.0 = disabled)",
+    )
     parser.add_argument("--save-dir", type=str, default="./checkpoints/finetune")
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
@@ -280,6 +320,7 @@ def main():
         weight_decay=args.weight_decay,
         crop_size=args.crop_size,
         precision=args.precision,
+        dropout=args.dropout,
         save_dir=args.save_dir,
         seed=args.seed,
     )
