@@ -21,6 +21,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from lumivox.data.dataset_blosc2 import create_dataloader
+from lumivox.data.dataset_omezarr import create_omezarr_dataloader
 from lumivox.losses.ntxent import NTXentLoss
 from lumivox.losses.regression import regression_loss
 from lumivox.models.byol3d_legacy_model import BYOL3DLegacyModel
@@ -110,6 +111,7 @@ def build_optimizer(
 def train(
     method: str = "simclr",
     data_dir: str | None = None,
+    manifest: str | None = None,
     crop_size: int = 96,
     batch_size: int = 16,
     epochs: int = 300,
@@ -147,18 +149,28 @@ def train(
     model = model.to(device)
 
     # Build data loader
-    use_synthetic = data_dir is None
-    dataloader = create_dataloader(
-        data_dir=data_dir,
-        method=method,
-        batch_size=batch_size,
-        crop_size=crop_size,
-        num_workers=num_workers,
-        pin_memory=True,
-        synthetic=use_synthetic,
-        synthetic_num_samples=max(1000, batch_size * 50),
-        synthetic_volume_size=max(32, crop_size + 8),
-    )
+    if manifest is not None:
+        dataloader = create_omezarr_dataloader(
+            manifest_path=manifest,
+            method=method,
+            batch_size=batch_size,
+            crop_size=crop_size,
+            num_workers=num_workers,
+            pin_memory=True,
+        )
+    else:
+        use_synthetic = data_dir is None
+        dataloader = create_dataloader(
+            data_dir=data_dir,
+            method=method,
+            batch_size=batch_size,
+            crop_size=crop_size,
+            num_workers=num_workers,
+            pin_memory=True,
+            synthetic=use_synthetic,
+            synthetic_num_samples=max(1000, batch_size * 50),
+            synthetic_volume_size=max(32, crop_size + 8),
+        )
 
     # Build optimizer and scheduler
     optimizer = build_optimizer(model, method, optimizer_type, lr, weight_decay)
@@ -304,7 +316,10 @@ def main():
         default="simclr",
         choices=["simclr", "nnbyol3d", "byol3d-legacy"],
     )
-    parser.add_argument("--data-dir", type=str, default=None)
+    parser.add_argument("--data-dir", type=str, default=None,
+                        help="Directory of .b2nd/.npy patches (original pipeline)")
+    parser.add_argument("--manifest", type=str, default=None,
+                        help="Path to OME-Zarr patch manifest JSON (see lumivox.data.manifest)")
     parser.add_argument("--crop-size", type=int, default=96)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--epochs", type=int, default=300)
@@ -334,6 +349,7 @@ def main():
     train(
         method=args.method,
         data_dir=args.data_dir,
+        manifest=args.manifest,
         crop_size=args.crop_size,
         batch_size=args.batch_size,
         epochs=args.epochs,

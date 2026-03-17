@@ -89,6 +89,7 @@ smoke-legacy = "python -m lumivox.training.pretrain --method byol3d-legacy --epo
 pretrain = "python -m lumivox.training.pretrain_lightning"
 finetune = "python -m lumivox.training.finetune"
 test = "python -m pytest tests/ -v"
+manifest = "python -m lumivox.data.manifest"
 
 # ─────────────────────────────────────────────
 # Features

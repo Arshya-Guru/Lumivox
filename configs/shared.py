@@ -63,5 +63,17 @@ FINETUNE_CONFIG = dict(
     dropout=0.0,  # Dropout on decoder skip connections (0.0 = disabled)
 )
 
+# OME-Zarr / manifest-based data config
+OMEZARR_DATA_CONFIG = dict(
+    stain="Abeta",  # channel resolved from omero metadata per subject
+    regions=[
+        "L_Isocortex", "R_Isocortex",
+        "L_Hippocampal formation", "R_Hippocampal formation",
+    ],
+    seg_level="roi22",
+    patch_size=256,
+    normalize="zscore",
+)
+
 # Mixed precision default
 DEFAULT_PRECISION = "bf16-mixed"
