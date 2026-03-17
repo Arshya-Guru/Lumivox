@@ -28,6 +28,7 @@ except ImportError:
     from pytorch_lightning.strategies import DDPStrategy
 
 from lumivox.data.dataset_blosc2 import create_dataloader
+from lumivox.data.dataset_omezarr import OMEZarrPatchDataset, _omezarr_worker_init_fn
 from lumivox.losses.ntxent import NTXentLoss
 from lumivox.losses.regression import regression_loss
 from lumivox.models.byol3d_legacy_model import BYOL3DLegacyModel
@@ -168,6 +169,26 @@ class PretrainLightningModule(pl.LightningModule):
         }
 
     def train_dataloader(self):
+        manifest = self.cfg.get("manifest")
+        if manifest is not None:
+            from torch.utils.data import DataLoader
+            dataset = OMEZarrPatchDataset(
+                manifest_path=manifest,
+                method=self.method,
+                crop_size=self.cfg.get("crop_size", 96),
+            )
+            return DataLoader(
+                dataset,
+                batch_size=self.cfg["batch_size"],
+                shuffle=True,
+                num_workers=self.cfg.get("num_workers", 4),
+                pin_memory=True,
+                drop_last=True,
+                persistent_workers=self.cfg.get("num_workers", 4) > 0,
+                prefetch_factor=4 if self.cfg.get("num_workers", 4) > 0 else None,
+                worker_init_fn=_omezarr_worker_init_fn,
+            )
+
         use_synthetic = self.cfg.get("data_dir") is None
         return create_dataloader(
             data_dir=self.cfg.get("data_dir"),
@@ -251,6 +272,8 @@ def main():
         choices=["simclr", "nnbyol3d", "byol3d-legacy"],
     )
     parser.add_argument("--data-dir", type=str, default=None)
+    parser.add_argument("--manifest", type=str, default=None,
+                        help="Path to OME-Zarr patch manifest JSON")
     parser.add_argument("--crop-size", type=int, default=96)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--epochs", type=int, default=300)
@@ -271,6 +294,8 @@ def main():
     parser.add_argument("--devices", type=int, default=None)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--resume", type=str, default=None,
+                        help="Path to Lightning checkpoint to resume from (last.ckpt)")
     args = parser.parse_args()
 
     # Compute steps
@@ -280,7 +305,11 @@ def main():
 
     # Estimate steps per epoch (will be recalculated if data is available)
     est_samples = 1000
-    if args.data_dir:
+    if args.manifest:
+        import json
+        with open(args.manifest) as f:
+            est_samples = json.load(f)["config"]["n_patches"]
+    elif args.data_dir:
         data_path = Path(args.data_dir)
         n = len(list(data_path.rglob("*.b2nd"))) + len(list(data_path.rglob("*.npy")))
         if n > 0:
@@ -293,6 +322,7 @@ def main():
     cfg = dict(
         method=args.method,
         data_dir=args.data_dir,
+        manifest=args.manifest,
         crop_size=args.crop_size,
         batch_size=args.batch_size,
         num_input_channels=1,
@@ -316,13 +346,31 @@ def main():
 
     model = PretrainLightningModule(cfg)
 
+    try:
+        from lightning.pytorch.callbacks import ModelCheckpoint
+    except ImportError:
+        from pytorch_lightning.callbacks import ModelCheckpoint
+
     callbacks = [
         CheckpointCallback(save_dir=args.save_dir, save_every_epochs=args.save_every),
+        # Lightning-native checkpoint for resume (saves full training state)
+        ModelCheckpoint(
+            dirpath=args.save_dir,
+            filename="last",
+            save_last=True,
+            every_n_epochs=1,
+            save_top_k=0,  # only keep last.ckpt
+        ),
     ]
 
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     if num_devices > 1:
-        strategy = DDPStrategy(find_unused_parameters=False, static_graph=True)
+        # BYOL target network has frozen params that DDP needs to handle
+        find_unused = args.method in ("nnbyol3d", "byol3d-legacy")
+        strategy = DDPStrategy(
+            find_unused_parameters=find_unused,
+            static_graph=(not find_unused),
+        )
     else:
         strategy = "auto"
 
@@ -337,11 +385,11 @@ def main():
         precision=args.precision,
         gradient_clip_val=1.0,
         gradient_clip_algorithm="norm",
-        enable_checkpointing=False,
+        enable_checkpointing=True,
         num_sanity_val_steps=0,
     )
 
-    trainer.fit(model)
+    trainer.fit(model, ckpt_path=args.resume)
 
 
 if __name__ == "__main__":

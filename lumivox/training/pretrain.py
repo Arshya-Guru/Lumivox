@@ -1,12 +1,11 @@
 """Unified pretraining loop for all three models.
 
 Handles SimCLR, nnBYOL3D, and byol3d-legacy with a single training loop.
-Uses plain PyTorch for single-GPU training.
+Uses plain PyTorch for single-GPU training.  For multi-GPU, use
+``pretrain_lightning.py`` which handles DDP via PyTorch Lightning.
 
 Usage:
-    python -m lumivox.training.pretrain --method simclr --data-dir /path/to/data
-    python -m lumivox.training.pretrain --method nnbyol3d --data-dir /path/to/data
-    python -m lumivox.training.pretrain --method byol3d-legacy --data-dir /path/to/data
+    python -m lumivox.training.pretrain --method simclr --manifest manifests/patches.json
 """
 
 from __future__ import annotations
@@ -29,7 +28,6 @@ from lumivox.models.nnbyol3d_model import NnBYOL3DModel
 from lumivox.models.simclr_model import SimCLRModel
 from lumivox.training.schedules import CosineWarmupScheduler
 from lumivox.utils.ema import cosine_ema_schedule, update_target_ema
-
 
 def build_model(method: str, cfg: Dict[str, Any]) -> nn.Module:
     """Build the appropriate model based on method name."""
@@ -68,7 +66,6 @@ def build_optimizer(
 ) -> torch.optim.Optimizer:
     """Build optimizer with proper weight decay exclusion."""
     if optimizer_type == "legacy" and method == "simclr":
-        # SimCLR legacy: SGD + Nesterov momentum 0.99
         return torch.optim.SGD(
             model.parameters(),
             lr=lr,
@@ -77,20 +74,14 @@ def build_optimizer(
             nesterov=True,
         )
 
-    # Default: AdamW with weight decay exclusion
     if method == "simclr":
-        params = model.parameters()
+        named_params = model.named_parameters()
     else:
-        # For BYOL models, only optimize online parameters
-        params = model.online.parameters()
+        named_params = model.online.named_parameters()
 
     decay_params = []
     no_decay_params = []
-    for name, p in (
-        model.named_parameters()
-        if method == "simclr"
-        else model.online.named_parameters()
-    ):
+    for name, p in named_params:
         if not p.requires_grad:
             continue
         if "bias" in name or "norm" in name or "bn" in name:
@@ -107,6 +98,10 @@ def build_optimizer(
         betas=(0.9, 0.999),
     )
 
+
+# ---------------------------------------------------------------------------
+# Training loop
+# ---------------------------------------------------------------------------
 
 def train(
     method: str = "simclr",
@@ -125,8 +120,9 @@ def train(
     precision: str = "bf16-mixed",
     seed: int = 42,
     num_workers: int = 4,
+    resume: str | None = None,
 ) -> None:
-    """Run pretraining."""
+    """Run pretraining (single GPU). For multi-GPU use pretrain_lightning.py."""
     torch.manual_seed(seed)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -193,12 +189,30 @@ def train(
     amp_dtype = torch.bfloat16 if "bf16" in precision else torch.float16
     scaler = torch.amp.GradScaler("cuda", enabled=(use_amp and amp_dtype == torch.float16))
 
+    # Resume from checkpoint
+    start_epoch = 0
+    global_step = 0
+    if resume is not None:
+        ckpt = torch.load(resume, map_location=device, weights_only=False)
+        if method == "simclr":
+            model.load_state_dict(ckpt["model_state_dict"])
+        else:
+            model.online.load_state_dict(ckpt["online_state_dict"])
+            model.target.load_state_dict(ckpt["target_state_dict"])
+        if "optimizer_state_dict" in ckpt:
+            optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+        start_epoch = ckpt.get("epoch", 0)
+        global_step = ckpt.get("global_step", 0)
+        # Advance scheduler to the correct step
+        for _ in range(global_step):
+            scheduler.step()
+        print(f"Resumed from {resume} (epoch {start_epoch}, step {global_step})")
+
     print(f"Starting {method} pretraining: {epochs} epochs, batch_size={batch_size}")
     print(f"  Model params: {sum(p.numel() for p in model.parameters()):,}")
     print(f"  Device: {device}, precision: {precision}")
 
-    global_step = 0
-    for epoch in range(epochs):
+    for epoch in range(start_epoch, epochs):
         model.train() if method == "simclr" else model.online.train()
 
         epoch_loss = 0.0
@@ -245,7 +259,7 @@ def train(
 
             scheduler.step()
 
-            # EMA update for BYOL models
+            # EMA update for BYOL models (on unwrapped model)
             if method in ("nnbyol3d", "byol3d-legacy"):
                 tau = cosine_ema_schedule(global_step, base_ema, max_steps)
                 update_target_ema(model.online, model.target, tau)
@@ -280,7 +294,6 @@ def train(
 
             ckpt["optimizer_state_dict"] = optimizer.state_dict()
 
-            # Adaptation plan for fair models
             if method in ("simclr", "nnbyol3d"):
                 ckpt["adaptation_plan"] = {
                     "architecture_plans": {"arch_class_name": "ResEncL"},
@@ -344,6 +357,8 @@ def main():
     )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--num-workers", type=int, default=4)
+    parser.add_argument("--resume", type=str, default=None,
+                        help="Path to checkpoint to resume from")
     args = parser.parse_args()
 
     train(
@@ -363,6 +378,7 @@ def main():
         precision=args.precision,
         seed=args.seed,
         num_workers=args.num_workers,
+        resume=args.resume,
     )
 
 

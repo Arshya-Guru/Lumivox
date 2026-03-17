@@ -29,6 +29,32 @@ STAIN_CHANNEL_MAP_FALLBACK = {
     "CD31": 2,
 }
 
+# Preferred SPIMquant derivative directory per dataset.
+# Keys are matched against the dataset root's directory name.
+# Values are ordered by preference — the first existing match wins.
+# If no match is found, falls back to globbing derivatives/spimquant*.
+PREFERRED_SPIMQUANT = {
+    "mouse_app_lecanemab_batch2": [
+        "spimquant-v0.6.0rc2_84a605e_ozx",
+        "spimquant_c270a40_atropos",
+    ],
+    "mouse_app_lecanemab_batch3": [
+        "spimquant-v0.6.0rc2_84a605e_ozx",
+    ],
+    "mouse_app_lecanemab_ki3_batch1": [
+        "spimquant_v0.5.0-alpha1",
+    ],
+    "mouse_app_lecanemab_ki3_batch2": [
+        "spimquant_c270a40_atropos",
+    ],
+    "mouse_app_lecanemab_ki3_batch3": [
+        "spimquant_c270a40_atropos",
+    ],
+    "mouse_app_vaccine_batch": [
+        "spimquant_c270a40_atropos",
+    ],
+}
+
 
 def resolve_stain_channel(zarr_path: str, stain: str, fullres_zarr_path: Optional[str] = None) -> int:
     """Look up the channel index for a stain from the OME-Zarr omero metadata.
@@ -70,10 +96,21 @@ def discover_subjects(
     bids_dir = root / "bids"
     resampled_dir = root / "bids" / "derivatives" / "resampled"
 
-    # SPIMquant derivatives directory may have a version/config suffix
-    # (e.g. spimquant_c270a40_atropos). Find it by glob.
-    spimquant_candidates = sorted(root.glob("derivatives/spimquant*"))
-    spimquant_dir = spimquant_candidates[0] if spimquant_candidates else None
+    # Resolve the SPIMquant derivatives directory.
+    # Check PREFERRED_SPIMQUANT first (keyed by dataset dir name),
+    # then fall back to globbing derivatives/spimquant*.
+    dataset_name = root.name
+    spimquant_dir = None
+
+    for preferred in PREFERRED_SPIMQUANT.get(dataset_name, []):
+        candidate = root / "derivatives" / preferred
+        if candidate.is_dir():
+            spimquant_dir = candidate
+            break
+
+    if spimquant_dir is None:
+        spimquant_candidates = sorted(root.glob("derivatives/spimquant*"))
+        spimquant_dir = spimquant_candidates[0] if spimquant_candidates else None
 
     subjects: List[Dict[str, str]] = []
 
@@ -127,13 +164,24 @@ def discover_subjects(
             continue
         dseg_path = str(dseg_candidates[0])
 
-        # Labels TSV (any stain variant -- label IDs are identical)
+        # Labels TSV (any stain variant -- label IDs are identical).
+        # Some spimquant runs don't produce per-subject TSVs, so fall back
+        # to any TSV in the spimquant dir, then to the bundled reference.
         tsv_candidates = sorted(spimquant_micr.glob(
             f"*_seg-{seg_level}_from-ABAv3_*_desc-deform_dseg.tsv"
         ))
         if not tsv_candidates:
-            continue
-        labels_path = str(tsv_candidates[0])
+            tsv_candidates = sorted(spimquant_dir.rglob(
+                f"*_seg-{seg_level}_*_dseg.tsv"
+            ))
+        if tsv_candidates:
+            labels_path = str(tsv_candidates[0])
+        else:
+            # Use bundled reference TSV (atlas labels are fixed across datasets)
+            ref = Path(__file__).parent / "reference" / f"seg-{seg_level}_dseg.tsv"
+            if not ref.exists():
+                continue
+            labels_path = str(ref)
 
         subjects.append({
             "subject_id": subject_id,
