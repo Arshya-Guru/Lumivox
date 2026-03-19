@@ -15,11 +15,25 @@ Usage:
 
 from __future__ import annotations
 
+import ctypes
+import gc
 from typing import Dict, Optional
 
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, Dataset
+
+# glibc malloc_trim — returns freed heap memory to the OS
+try:
+    _LIBC = ctypes.CDLL("libc.so.6")
+    def _malloc_trim():
+        _LIBC.malloc_trim(0)
+except OSError:
+    def _malloc_trim():
+        pass
+
+# Flush zarr caches every N samples per worker to prevent heap fragmentation
+_CACHE_FLUSH_INTERVAL = 1000
 
 from lumivox.augmentations.crop_pair import extract_crop_pair
 from lumivox.augmentations.legacy_aug import LegacyAugment3D, augment_config as legacy_augment_config
@@ -77,6 +91,7 @@ class OMEZarrPatchDataset(Dataset):
 
         # Per-worker volume cache -- populated lazily in __getitem__
         self._vol_cache: Dict[str, object] = {}
+        self._samples_since_flush = 0
 
         # Augmentations (same as LumivoxDataset)
         if method == "byol3d-legacy":
@@ -150,7 +165,17 @@ class OMEZarrPatchDataset(Dataset):
     def __len__(self) -> int:
         return len(self.patches)
 
+    def _maybe_flush_cache(self):
+        """Periodically clear zarr caches and return heap memory to OS."""
+        self._samples_since_flush += 1
+        if self._samples_since_flush >= _CACHE_FLUSH_INTERVAL:
+            self._vol_cache.clear()
+            gc.collect()
+            _malloc_trim()
+            self._samples_since_flush = 0
+
     def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+        self._maybe_flush_cache()
         try:
             return self._load_sample(idx)
         except Exception:

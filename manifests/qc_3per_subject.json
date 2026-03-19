@@ -1,0 +1,3137 @@
+{
+  "config": {
+    "stain": "Abeta",
+    "regions": [
+      "L_Isocortex",
+      "R_Isocortex",
+      "L_Hippocampal formation",
+      "R_Hippocampal formation"
+    ],
+    "n_patches": 156,
+    "patch_size": 256,
+    "crop_size": 96,
+    "seed": 42
+  },
+  "patches": [
+    {
+      "subject_id": "sub-AS114M3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.708000138401985,
+        12.324000254273415,
+        -2.3759999871253967
+      ],
+      "center_vox": [
+        215.99999882958156,
+        3081.000063568353,
+        1677.0000346004963
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS114M3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.3440001308918,
+        8.164000168442726,
+        -0.7039999961853027
+      ],
+      "center_vox": [
+        63.99999965320935,
+        2041.0000421106815,
+        1586.00003272295
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS114M3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        5.720000118017197,
+        8.112000167369843,
+        -1.891999989748001
+      ],
+      "center_vox": [
+        171.99999906800014,
+        2028.0000418424606,
+        1430.000029504299
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS118M9",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.892000183463097,
+        9.5160001963377,
+        -1.8039999902248383
+      ],
+      "center_vox": [
+        450.9999975562096,
+        2379.000049084425,
+        2223.000045865774
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS118M9",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.7680000364780426,
+        7.64400015771389,
+        -1.055999994277954
+      ],
+      "center_vox": [
+        263.9999985694886,
+        1911.0000394284725,
+        442.0000091195106
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS118M9",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.652000054717064,
+        10.24400021135807,
+        -1.671999990940094
+      ],
+      "center_vox": [
+        417.99999773502356,
+        2561.0000528395176,
+        663.000013679266
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS118M9/micr/sub-AS118M9_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        7.956000164151192,
+        -6.032000124454498,
+        -3.123999983072281
+      ],
+      "center_vox": [
+        780.9999957680703,
+        1508.0000311136246,
+        1989.000041037798
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.4440000504255295,
+        -8.78800018131733,
+        -0.7479999959468842
+      ],
+      "center_vox": [
+        186.99999898672107,
+        2197.0000453293324,
+        611.0000126063824
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.1840000450611115,
+        -8.840000182390213,
+        -4.047999978065491
+      ],
+      "center_vox": [
+        1011.9999945163728,
+        2210.0000455975533,
+        546.0000112652779
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F2/micr/sub-AS36F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.0680000633001328,
+        6.864000141620636,
+        -1.143999993801117
+      ],
+      "center_vox": [
+        285.9999984502793,
+        1716.0000354051588,
+        767.0000158250332
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.992000102996826,
+        10.296000212430954,
+        -1.891999989748001
+      ],
+      "center_vox": [
+        472.9999974370004,
+        2574.000053107738,
+        1248.0000257492065
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.6640000343322754,
+        5.824000120162964,
+        -4.135999977588654
+      ],
+      "center_vox": [
+        1033.9999943971636,
+        1456.0000300407407,
+        416.0000085830688
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4/micr/sub-AS36F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F4e",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.692000076174736,
+        7.8520001620054245,
+        -5.939999967813492
+      ],
+      "center_vox": [
+        1484.9999919533732,
+        1963.0000405013561,
+        923.000019043684
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F4e",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        7.228000149130821,
+        9.100000187754631,
+        -1.979999989271164
+      ],
+      "center_vox": [
+        494.99999731779104,
+        2275.0000469386578,
+        1807.0000372827053
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS36F4e",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.91600014269352,
+        6.3440001308918,
+        -1.4079999923706055
+      ],
+      "center_vox": [
+        351.9999980926514,
+        1586.00003272295,
+        1729.0000356733797
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS36F4e/micr/sub-AS36F4e_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.7960000783205032,
+        11.700000241398811,
+        -2.815999984741211
+      ],
+      "center_vox": [
+        703.9999961853028,
+        2925.000060349703,
+        949.0000195801257
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.8200000375509262,
+        7.540000155568123,
+        -2.0239999890327454
+      ],
+      "center_vox": [
+        505.9999972581864,
+        1885.0000388920305,
+        455.00000938773155
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.6400000751018524,
+        9.880000203847885,
+        -0.7479999959468842
+      ],
+      "center_vox": [
+        186.99999898672107,
+        2470.0000509619713,
+        910.0000187754631
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F2/micr/sub-AS40F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.760000139474869,
+        10.08800020813942,
+        -0.835999995470047
+      ],
+      "center_vox": [
+        208.99999886751178,
+        2522.0000520348544,
+        1690.0000348687172
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.5080000311136246,
+        6.084000125527382,
+        -1.671999990940094
+      ],
+      "center_vox": [
+        417.99999773502356,
+        1521.0000313818455,
+        377.00000777840614
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        7.8520001620054245,
+        6.708000138401985,
+        -4.795999974012375
+      ],
+      "center_vox": [
+        1198.9999935030937,
+        1677.0000346004963,
+        1963.0000405013561
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F3/micr/sub-AS40F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.448000133037567,
+        10.192000210285187,
+        -0.7039999961853027
+      ],
+      "center_vox": [
+        175.9999990463257,
+        2548.0000525712967,
+        1612.0000332593918
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.328000068664551,
+        6.968000143766403,
+        -2.1559999883174896
+      ],
+      "center_vox": [
+        538.9999970793724,
+        1742.0000359416008,
+        832.0000171661376
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS40F5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/derivatives/resampled/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/bids/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.4440000504255295,
+        12.012000247836113,
+        -2.507999986410141
+      ],
+      "center_vox": [
+        626.9999966025354,
+        3003.0000619590282,
+        611.0000126063824
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS40F5/micr/sub-AS40F5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS161F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.760000139474869,
+        -5.200000107288361,
+        -2.067999988794327
+      ],
+      "center_vox": [
+        516.9999971985818,
+        1300.0000268220901,
+        1690.0000348687172
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS161F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        7.800000160932541,
+        -9.724000200629234,
+        -1.2319999933242798
+      ],
+      "center_vox": [
+        307.99999833106995,
+        2431.0000501573086,
+        1950.000040233135
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS161F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.236000046133995,
+        -7.384000152349472,
+        -4.311999976634979
+      ],
+      "center_vox": [
+        1077.9999941587448,
+        1846.000038087368,
+        559.0000115334987
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS161F3/micr/sub-AS161F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS164F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        0.7800000160932541,
+        -13.676000282168388,
+        -3.0799999833106995
+      ],
+      "center_vox": [
+        769.999995827675,
+        3419.000070542097,
+        195.00000402331352
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS164F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.588000074028969,
+        -6.760000139474869,
+        -1.671999990940094
+      ],
+      "center_vox": [
+        417.99999773502356,
+        1690.0000348687172,
+        897.0000185072422
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS164F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        5.148000106215477,
+        -9.620000198483467,
+        -0.17599999904632568
+      ],
+      "center_vox": [
+        43.99999976158143,
+        2405.0000496208663,
+        1287.000026553869
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F3/micr/sub-AS164F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS164F5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        10.400000214576721,
+        -9.984000205993652,
+        -2.111999988555908
+      ],
+      "center_vox": [
+        527.9999971389772,
+        2496.000051498413,
+        2600.0000536441803
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS164F5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.996000185608864,
+        -7.64400015771389,
+        -1.451999992132187
+      ],
+      "center_vox": [
+        362.9999980330468,
+        1911.0000394284725,
+        2249.000046402216
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS164F5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        0.9360000193119049,
+        -11.336000233888626,
+        -3.035999983549118
+      ],
+      "center_vox": [
+        758.9999958872797,
+        2834.0000584721565,
+        234.00000482797623
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS164F5/micr/sub-AS164F5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS165F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.524000093340874,
+        -7.332000151276588,
+        -0.7479999959468842
+      ],
+      "center_vox": [
+        186.99999898672107,
+        1833.0000378191469,
+        1131.0000233352184
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS165F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        7.748000159859657,
+        -9.464000195264816,
+        -1.0999999940395355
+      ],
+      "center_vox": [
+        274.99999850988394,
+        2366.000048816204,
+        1937.000039964914
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS165F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        9.204000189900398,
+        -7.436000153422356,
+        -3.0799999833106995
+      ],
+      "center_vox": [
+        769.999995827675,
+        1859.000038355589,
+        2301.0000474750996
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS165F7/micr/sub-AS165F7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS168F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        5.564000114798546,
+        -3.7440000772476196,
+        -1.363999992609024
+      ],
+      "center_vox": [
+        340.99999815225607,
+        936.0000193119049,
+        1391.0000286996365
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS168F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.4040000289678574,
+        -9.256000190973282,
+        -2.7719999849796295
+      ],
+      "center_vox": [
+        692.9999962449075,
+        2314.0000477433205,
+        351.00000724196434
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS168F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        11.284000232815742,
+        -7.748000159859657,
+        -4.4439999759197235
+      ],
+      "center_vox": [
+        1110.9999939799309,
+        1937.000039964914,
+        2821.0000582039356
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F1/micr/sub-AS168F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS168F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.3520000278949738,
+        -8.632000178098679,
+        -1.979999989271164
+      ],
+      "center_vox": [
+        494.99999731779104,
+        2158.0000445246696,
+        338.00000697374344
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS168F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.264000087976456,
+        -8.840000182390213,
+        -0.7039999961853027
+      ],
+      "center_vox": [
+        175.9999990463257,
+        2210.0000455975533,
+        1066.000021994114
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS168F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.94400018453598,
+        -8.736000180244446,
+        -2.1559999883174896
+      ],
+      "center_vox": [
+        538.9999970793724,
+        2184.0000450611115,
+        2236.0000461339946
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS168F2/micr/sub-AS168F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS204M1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.736000180244446,
+        -10.452000215649605,
+        -5.147999972105026
+      ],
+      "center_vox": [
+        1286.9999930262568,
+        2613.000053912401,
+        2184.0000450611115
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS204M1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.496000051498413,
+        -10.556000217795372,
+        -3.5199999809265137
+      ],
+      "center_vox": [
+        879.9999952316286,
+        2639.000054448843,
+        624.0000128746033
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS204M1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.0800000429153442,
+        -9.5160001963377,
+        -4.575999975204468
+      ],
+      "center_vox": [
+        1143.9999938011172,
+        2379.000049084425,
+        520.0000107288361
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS204M1/micr/sub-AS204M1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.016000062227249,
+        -6.864000141620636,
+        -2.3319999873638153
+      ],
+      "center_vox": [
+        582.9999968409538,
+        1716.0000354051588,
+        754.0000155568123
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.47200009226799,
+        -5.668000116944313,
+        -1.979999989271164
+      ],
+      "center_vox": [
+        494.99999731779104,
+        1417.0000292360783,
+        1118.0000230669973
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        10.08800020813942,
+        -9.984000205993652,
+        -3.563999980688095
+      ],
+      "center_vox": [
+        890.9999951720239,
+        2496.000051498413,
+        2522.0000520348544
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F1/micr/sub-AS208F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.9000000804662704,
+        -8.320000171661377,
+        -0.6159999966621399
+      ],
+      "center_vox": [
+        153.99999916553497,
+        2080.0000429153442,
+        975.0000201165675
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.320000171661377,
+        -3.432000070810318,
+        -2.1559999883174896
+      ],
+      "center_vox": [
+        538.9999970793724,
+        858.0000177025794,
+        2080.0000429153442
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        9.776000201702118,
+        -10.348000213503838,
+        -1.1879999935626984
+      ],
+      "center_vox": [
+        296.99999839067465,
+        2587.0000533759594,
+        2444.0000504255295
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F2/micr/sub-AS208F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        0.7800000160932541,
+        -9.724000200629234,
+        -2.4639999866485596
+      ],
+      "center_vox": [
+        615.9999966621399,
+        2431.0000501573086,
+        195.00000402331352
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        3.276000067591667,
+        -5.616000115871429,
+        -1.4959999918937683
+      ],
+      "center_vox": [
+        373.99999797344213,
+        1404.0000289678574,
+        819.0000168979168
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS208F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/derivatives/resampled/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/bids/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.3440001308918,
+        -5.564000114798546,
+        -2.507999986410141
+      ],
+      "center_vox": [
+        626.9999966025354,
+        1391.0000286996365,
+        1586.00003272295
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch3/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS208F3/micr/sub-AS208F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS134F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.799999788403511,
+        -6.239999830722809,
+        -1.3199999704957008
+      ],
+      "center_vox": [
+        329.9999926239252,
+        1559.9999576807022,
+        1949.9999471008778
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS134F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        10.26479972153902,
+        -5.86559984087944,
+        -4.4399999007582664
+      ],
+      "center_vox": [
+        1109.9999751895666,
+        1466.39996021986,
+        2566.199930384755
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS134F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        6.271199829876423,
+        -8.143199779093266,
+        -1.099999975413084
+      ],
+      "center_vox": [
+        274.999993853271,
+        2035.7999447733162,
+        1567.7999574691057
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F1/micr/sub-AS134F1_sample-brain_acq-imaris4x166_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS134F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.5271999314427376,
+        -9.047999754548073,
+        -4.459999900311232
+      ],
+      "center_vox": [
+        1114.999975077808,
+        2261.999938637018,
+        631.7999828606844
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS134F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.2775999382138252,
+        -5.5535998493433,
+        -2.819999936968088
+      ],
+      "center_vox": [
+        704.999984242022,
+        1388.3999623358247,
+        569.3999845534563
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS134F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.3287997469306,
+        -9.827999733388424,
+        -4.539999898523092
+      ],
+      "center_vox": [
+        1134.999974630773,
+        2456.9999333471055,
+        2332.19993673265
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS134F3/micr/sub-AS134F3_sample-brain_acq-imaris4x166_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.78800018131733,
+        -9.568000197410583,
+        -3.625599980354309
+      ],
+      "center_vox": [
+        906.3999950885773,
+        2392.000049352646,
+        2197.0000453293324
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.392000049352646,
+        -6.032000124454498,
+        -1.9359999895095825
+      ],
+      "center_vox": [
+        483.99999737739563,
+        1508.0000311136246,
+        598.0000123381615
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M5",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        1.5080000311136246,
+        -11.076000228524208,
+        -2.358399987220764
+      ],
+      "center_vox": [
+        589.599996805191,
+        2769.000057131052,
+        377.00000777840614
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M5/micr/sub-AS135M5_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.7040000557899475,
+        -11.54400023818016,
+        -1.2319999933242798
+      ],
+      "center_vox": [
+        307.99999833106995,
+        2886.00005954504,
+        676.0000139474869
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.496000051498413,
+        -7.228000149130821,
+        -2.358399987220764
+      ],
+      "center_vox": [
+        589.599996805191,
+        1807.0000372827053,
+        624.0000128746033
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.696000158786774,
+        -5.200000107288361,
+        -2.9919999837875366
+      ],
+      "center_vox": [
+        747.9999959468842,
+        1300.0000268220901,
+        1924.0000396966934
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M6/micr/sub-AS135M6_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.840000182390213,
+        4.992000102996826,
+        -3.660799980163574
+      ],
+      "center_vox": [
+        915.1999950408936,
+        1248.0000257492065,
+        2210.0000455975533
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.1600000858306885,
+        4.212000086903572,
+        -0.7391999959945679
+      ],
+      "center_vox": [
+        184.79999899864197,
+        1053.000021725893,
+        1040.0000214576721
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.78800018131733,
+        4.056000083684921,
+        -3.8015999794006348
+      ],
+      "center_vox": [
+        950.3999948501587,
+        1014.0000209212303,
+        2197.0000453293324
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M7/micr/sub-AS135M7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M8",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        1.976000040769577,
+        -7.8520001620054245,
+        -2.1471999883651733
+      ],
+      "center_vox": [
+        536.7999970912933,
+        1963.0000405013561,
+        494.00001019239426
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M8",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.268000170588493,
+        -5.512000113725662,
+        -1.4431999921798706
+      ],
+      "center_vox": [
+        360.79999804496765,
+        1378.0000284314156,
+        2067.000042647123
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS135M8",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        0.7280000150203705,
+        -9.256000190973282,
+        -4.118399977684021
+      ],
+      "center_vox": [
+        1029.5999944210052,
+        2314.0000477433205,
+        182.0000037550926
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS135M8/micr/sub-AS135M8_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS48F66",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x45deg_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x45deg_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.100000187754631,
+        -4.784000098705292,
+        -3.5568159930408
+      ],
+      "center_vox": [
+        889.2039982602,
+        1196.000024676323,
+        2275.0000469386578
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS48F66",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x45deg_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x45deg_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.668000116944313,
+        -3.952000081539154,
+        -3.627247992902994
+      ],
+      "center_vox": [
+        906.8119982257484,
+        988.0000203847885,
+        1417.0000292360783
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS48F66",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x45deg_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x45deg_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        10.08800020813942,
+        -11.908000245690346,
+        -4.648511990904808
+      ],
+      "center_vox": [
+        1162.127997726202,
+        2977.0000614225864,
+        2522.0000520348544
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS48F66/micr/sub-AS48F66_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        6.760000139474869,
+        -6.084000125527382,
+        -1.020799994468689
+      ],
+      "center_vox": [
+        255.19999861717224,
+        1521.0000313818455,
+        1690.0000348687172
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.880000203847885,
+        -8.632000178098679,
+        -2.006399989128113
+      ],
+      "center_vox": [
+        501.5999972820282,
+        2158.0000445246696,
+        2470.0000509619713
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/derivatives/resampled/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/bids/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.528000175952911,
+        -10.868000224232674,
+        -1.8655999898910522
+      ],
+      "center_vox": [
+        466.39999747276306,
+        2717.0000560581684,
+        2132.000043988228
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch1/derivatives/spimquant_v0.5.0-alpha1/sub-AS7F3/micr/sub-AS7F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F1e",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.1600000858306885,
+        -5.928000122308731,
+        -1.1615999937057495
+      ],
+      "center_vox": [
+        290.3999984264374,
+        1482.0000305771828,
+        1040.0000214576721
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F1e",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.8080000579357147,
+        -9.724000200629234,
+        -2.4287999868392944
+      ],
+      "center_vox": [
+        607.1999967098235,
+        2431.0000501573086,
+        702.0000144839287
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F1e",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.152000188827515,
+        -9.152000188827515,
+        -2.3935999870300293
+      ],
+      "center_vox": [
+        598.3999967575073,
+        2288.0000472068787,
+        2288.0000472068787
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F1e/micr/sub-AS11F1e_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.332000151276588,
+        -11.284000232815742,
+        -1.5847199968993664
+      ],
+      "center_vox": [
+        396.1799992248416,
+        2821.0000582039356,
+        1833.0000378191469
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.568000197410583,
+        -7.488000154495239,
+        -4.0850559920072556
+      ],
+      "center_vox": [
+        1021.2639980018138,
+        1872.0000386238098,
+        2392.000049352646
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.060000166296959,
+        -9.984000205993652,
+        -2.8172799944877625
+      ],
+      "center_vox": [
+        704.3199986219406,
+        2496.000051498413,
+        2015.0000415742397
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F3/micr/sub-AS11F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        10.764000222086906,
+        -7.5920001566410065,
+        -2.912000138312578
+      ],
+      "center_vox": [
+        728.0000345781446,
+        1898.0000391602514,
+        2691.000055521726
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.236000046133995,
+        -8.268000170588493,
+        -2.3360001109540462
+      ],
+      "center_vox": [
+        584.0000277385116,
+        2067.000042647123,
+        559.0000115334987
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS11F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.4440000504255295,
+        -4.264000087976456,
+        -1.2800000607967377
+      ],
+      "center_vox": [
+        320.0000151991844,
+        1066.000021994114,
+        611.0000126063824
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS11F4/micr/sub-AS11F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F30",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.984000205993652,
+        -5.77200011909008,
+        -3.4495999813079834
+      ],
+      "center_vox": [
+        862.3999953269958,
+        1443.00002977252,
+        2496.000051498413
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F30",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        1.196000024676323,
+        -7.384000152349472,
+        -2.7455999851226807
+      ],
+      "center_vox": [
+        686.3999962806702,
+        1846.000038087368,
+        299.00000616908073
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F30",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        1.456000030040741,
+        -12.012000247836113,
+        -2.3935999870300293
+      ],
+      "center_vox": [
+        598.3999967575073,
+        3003.0000619590282,
+        364.0000075101852
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS37F30/micr/sub-AS37F30_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me0",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.4440000504255295,
+        -3.1720000654459,
+        -1.1200000531971455
+      ],
+      "center_vox": [
+        280.00001329928637,
+        793.000016361475,
+        611.0000126063824
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me0",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.236000046133995,
+        -9.048000186681747,
+        -1.4400000683963299
+      ],
+      "center_vox": [
+        360.00001709908247,
+        2262.000046670437,
+        559.0000115334987
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me0",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.212000086903572,
+        -4.888000100851059,
+        -0.6080000288784504
+      ],
+      "center_vox": [
+        152.0000072196126,
+        1222.0000252127647,
+        1053.000021725893
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me0/micr/sub-AS39Me0_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.256000190973282,
+        -9.464000195264816,
+        -1.088000051677227
+      ],
+      "center_vox": [
+        272.00001291930676,
+        2366.000048816204,
+        2314.0000477433205
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.264000087976456,
+        -3.3800000697374344,
+        -0.8320000395178795
+      ],
+      "center_vox": [
+        208.00000987946987,
+        845.0000174343586,
+        1066.000021994114
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        3.7440000772476196,
+        -1.976000040769577,
+        -1.0560000501573086
+      ],
+      "center_vox": [
+        264.00001253932714,
+        494.00001019239426,
+        936.0000193119049
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS39Me2/micr/sub-AS39Me2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.5920001566410065,
+        -7.696000158786774,
+        -0.8320000395178795
+      ],
+      "center_vox": [
+        208.00000987946987,
+        1924.0000396966934,
+        1898.0000391602514
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.228000149130821,
+        -6.708000138401985,
+        -0.8320000395178795
+      ],
+      "center_vox": [
+        208.00000987946987,
+        1677.0000346004963,
+        1807.0000372827053
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.5480000525712967,
+        -9.568000197410583,
+        -0.9280000440776348
+      ],
+      "center_vox": [
+        232.0000110194087,
+        2392.000049352646,
+        637.0000131428242
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F1/micr/sub-AS7F1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.904000163078308,
+        -8.996000185608864,
+        -1.0212639980018139
+      ],
+      "center_vox": [
+        255.31599950045344,
+        2249.000046402216,
+        1976.000040769577
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.580000177025795,
+        -10.81600022315979,
+        -0.5634559988975525
+      ],
+      "center_vox": [
+        140.86399972438812,
+        2704.0000557899475,
+        2145.0000442564487
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS7F2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.4440000504255295,
+        -10.764000222086906,
+        -5.2119679898023605
+      ],
+      "center_vox": [
+        1302.9919974505901,
+        2691.000055521726,
+        611.0000126063824
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS7F2/micr/sub-AS7F2_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS8M1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.048000186681747,
+        -10.608000218868256,
+        -2.7455999851226807
+      ],
+      "center_vox": [
+        686.3999962806702,
+        2652.000054717064,
+        2262.000046670437
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS8M1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        3.952000081539154,
+        -8.008000165224075,
+        -2.2175999879837036
+      ],
+      "center_vox": [
+        554.3999969959259,
+        2002.0000413060186,
+        988.0000203847885
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS8M1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.620000198483467,
+        -9.204000189900398,
+        -3.308799982070923
+      ],
+      "center_vox": [
+        827.1999955177307,
+        2301.0000474750996,
+        2405.0000496208663
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M1/micr/sub-AS8M1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS8M4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.360000193119049,
+        -6.864000141620636,
+        -3.379199981689453
+      ],
+      "center_vox": [
+        844.7999954223632,
+        1716.0000354051588,
+        2340.0000482797623
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS8M4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.020000144839287,
+        -8.112000167369843,
+        -0.42239999771118164
+      ],
+      "center_vox": [
+        105.5999994277954,
+        2028.0000418424606,
+        1755.0000362098217
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS8M4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.3400000482797623,
+        -6.91600014269352,
+        -2.53439998626709
+      ],
+      "center_vox": [
+        633.5999965667725,
+        1729.0000356733797,
+        585.0000120699406
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS8M4/micr/sub-AS8M4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS9F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.124000146985054,
+        -7.020000144839287,
+        -1.4079999923706055
+      ],
+      "center_vox": [
+        351.9999980926513,
+        1755.0000362098217,
+        1781.0000367462633
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS9F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.616000115871429,
+        -7.5920001566410065,
+        -0.5983999967575073
+      ],
+      "center_vox": [
+        149.59999918937683,
+        1898.0000391602514,
+        1404.0000289678574
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS9F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/derivatives/resampled/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/bids/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.496000051498413,
+        -5.408000111579895,
+        -3.5199999809265137
+      ],
+      "center_vox": [
+        879.9999952316284,
+        1352.0000278949738,
+        624.0000128746033
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch2/derivatives/spimquant_c270a40_atropos/sub-AS9F7/micr/sub-AS9F7_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-A37F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        1.5080000311136246,
+        -7.384000152349472,
+        -1.6903679966926575
+      ],
+      "center_vox": [
+        422.59199917316437,
+        1846.000038087368,
+        377.00000777840614
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-A37F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.632000178098679,
+        -11.232000231742859,
+        -0.9860479980707169
+      ],
+      "center_vox": [
+        246.51199951767921,
+        2808.0000579357147,
+        2158.0000445246696
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-A37F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.368000090122223,
+        -4.524000093340874,
+        -3.521599993109703
+      ],
+      "center_vox": [
+        880.3999982774258,
+        1131.0000233352184,
+        1092.0000225305557
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-A37F4/micr/sub-A37F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS10M6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        3.848000079393387,
+        -5.980000123381615,
+        -1.8312319964170456
+      ],
+      "center_vox": [
+        457.80799910426134,
+        1495.0000308454037,
+        962.0000198483467
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS10M6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        6.240000128746033,
+        -8.840000182390213,
+        -0.9860479980707169
+      ],
+      "center_vox": [
+        246.51199951767921,
+        2210.0000455975533,
+        1560.0000321865082
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS10M6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.756000056862831,
+        -10.97200022637844,
+        -3.380735993385315
+      ],
+      "center_vox": [
+        845.1839983463287,
+        2743.0000565946098,
+        689.0000142157078
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS10M6/micr/sub-AS10M6_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        0.9360000193119049,
+        -12.220000252127647,
+        -3.451167993247509
+      ],
+      "center_vox": [
+        862.7919983118773,
+        3055.000063031912,
+        234.00000482797623
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        0.8320000171661377,
+        -11.232000231742859,
+        -4.0850559920072556
+      ],
+      "center_vox": [
+        1021.2639980018138,
+        2808.0000579357147,
+        208.0000042915344
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        8.840000182390213,
+        -9.620000198483467,
+        -1.9016639962792397
+      ],
+      "center_vox": [
+        475.4159990698099,
+        2405.0000496208663,
+        2210.0000455975533
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F3/micr/sub-AS37F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F33",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.564000114798546,
+        -9.776000201702118,
+        -0.4578079991042614
+      ],
+      "center_vox": [
+        114.45199977606534,
+        2444.0000504255295,
+        1391.0000286996365
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F33",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.928000122308731,
+        -9.360000193119049,
+        -1.5142879970371723
+      ],
+      "center_vox": [
+        378.5719992592931,
+        2340.0000482797623,
+        1482.0000305771828
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS37F33",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        3.1200000643730164,
+        -3.7440000772476196,
+        -2.7116319946944714
+      ],
+      "center_vox": [
+        677.9079986736177,
+        936.0000193119049,
+        780.0000160932541
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS37F33/micr/sub-AS37F33_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        10.452000215649605,
+        -9.880000203847885,
+        -4.965455990284681
+      ],
+      "center_vox": [
+        1241.36399757117,
+        2470.0000509619713,
+        2613.000053912401
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        2.7040000557899475,
+        -9.776000201702118,
+        -3.345519993454218
+      ],
+      "center_vox": [
+        836.3799983635545,
+        2444.0000504255295,
+        676.0000139474869
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.732000097632408,
+        -10.036000207066536,
+        -0.5634559988975525
+      ],
+      "center_vox": [
+        140.86399972438812,
+        2509.000051766634,
+        1183.000024408102
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F3/micr/sub-AS38F3_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.776000201702118,
+        -6.500000134110451,
+        -4.472431991249323
+      ],
+      "center_vox": [
+        1118.1079978123307,
+        1625.0000335276125,
+        2444.0000504255295
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.668000116944313,
+        -3.6400000751018524,
+        -3.451167993247509
+      ],
+      "center_vox": [
+        862.7919983118773,
+        910.0000187754631,
+        1417.0000292360783
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        10.140000209212303,
+        -9.152000188827515,
+        -4.296351991593838
+      ],
+      "center_vox": [
+        1074.0879978984594,
+        2288.0000472068787,
+        2535.000052303076
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F4/micr/sub-AS38F4_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F40",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        3.1200000643730164,
+        -11.804000243544579,
+        -1.9720959961414337
+      ],
+      "center_vox": [
+        493.02399903535843,
+        2951.0000608861446,
+        780.0000160932541
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F40",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        3.2240000665187836,
+        -10.868000224232674,
+        -4.401999991387129
+      ],
+      "center_vox": [
+        1100.4999978467822,
+        2717.0000560581684,
+        806.0000166296959
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS38F40",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.824000120162964,
+        -4.836000099778175,
+        -3.627247992902994
+      ],
+      "center_vox": [
+        906.8119982257485,
+        1209.0000249445438,
+        1456.0000300407407
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS38F40/micr/sub-AS38F40_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        9.5160001963377,
+        -5.980000123381615,
+        -3.7681119926273823
+      ],
+      "center_vox": [
+        942.0279981568456,
+        1495.0000308454037,
+        2379.000049084425
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        6.188000127673149,
+        -4.1600000858306885,
+        -3.451167993247509
+      ],
+      "center_vox": [
+        862.7919983118773,
+        1040.0000214576721,
+        1547.0000319182873
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS39Me1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        5.148000106215477,
+        -7.956000164151192,
+        -1.3029919974505901
+      ],
+      "center_vox": [
+        325.74799936264753,
+        1989.000041037798,
+        1287.000026553869
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-AS39Me1/micr/sub-AS39Me1_sample-brain_acq-imaris4x_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-C57BL6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        7.8520001620054245,
+        -7.228000149130821,
+        -0.8099679984152317
+      ],
+      "center_vox": [
+        202.49199960380793,
+        1807.0000372827053,
+        1963.0000405013561
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-C57BL6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        1.3520000278949738,
+        -8.996000185608864,
+        -4.437215991318226
+      ],
+      "center_vox": [
+        1109.3039978295565,
+        2249.000046402216,
+        338.00000697374344
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-C57BL6",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/derivatives/resampled/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/bids/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_SPIM.ome.zarr",
+      "stain_channel": 1,
+      "center_phys": [
+        4.940000101923943,
+        -9.724000200629234,
+        -2.289039995521307
+      ],
+      "center_vox": [
+        572.2599988803266,
+        2431.0000501573086,
+        1235.0000254809856
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/trident3/lightsheet/prado/mouse_app_lecanemab_ki3_batch3/derivatives/spimquant_c270a40_atropos/sub-C57BL6/micr/sub-C57BL6_sample-brain_acq-imaris_stain-Abeta_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.108000084757805,
+        -7.64400015771389,
+        -1.0999999940395355
+      ],
+      "center_vox": [
+        274.99999850988394,
+        1911.0000394284725,
+        1027.0000211894512
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        7.540000155568123,
+        -8.528000175952911,
+        -1.5839999914169312
+      ],
+      "center_vox": [
+        395.9999978542328,
+        2132.000043988228,
+        1885.0000388920305
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F1",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.78800018131733,
+        -4.6800000965595245,
+        -2.6839999854564667
+      ],
+      "center_vox": [
+        670.9999963641168,
+        1170.0000241398811,
+        2197.0000453293324
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F1/micr/sub-AS176F1_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.992000102996826,
+        -6.1360001266002655,
+        -1.451999992132187
+      ],
+      "center_vox": [
+        362.9999980330468,
+        1534.0000316500664,
+        1248.0000257492065
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        4.368000090122223,
+        -2.912000060081482,
+        -1.891999989748001
+      ],
+      "center_vox": [
+        472.9999974370004,
+        728.0000150203704,
+        1092.0000225305557
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        2.496000051498413,
+        -9.828000202775002,
+        -2.5519999861717224
+      ],
+      "center_vox": [
+        637.9999965429307,
+        2457.0000506937504,
+        624.0000128746033
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F3/micr/sub-AS176F3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.9240000396966934,
+        -5.980000123381615,
+        -0.6720000319182873
+      ],
+      "center_vox": [
+        168.00000797957185,
+        1495.0000308454037,
+        481.00000992417336
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        9.828000202775002,
+        -4.940000101923943,
+        -0.576000027358532
+      ],
+      "center_vox": [
+        144.000006839633,
+        1235.0000254809856,
+        2457.0000506937504
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS176F7",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        10.08800020813942,
+        -5.512000113725662,
+        -0.6400000303983688
+      ],
+      "center_vox": [
+        160.00000759959224,
+        1378.0000284314156,
+        2522.0000520348544
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS176F7/micr/sub-AS176F7_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.37200017273426,
+        -4.056000083684921,
+        -2.419999986886978
+      ],
+      "center_vox": [
+        604.9999967217447,
+        1014.0000209212303,
+        2093.000043183565
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        5.200000107288361,
+        -6.240000128746033,
+        -0.48399999737739563
+      ],
+      "center_vox": [
+        120.99999934434892,
+        1560.0000321865082,
+        1300.0000268220901
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M2",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        6.604000136256218,
+        -6.3440001308918,
+        -1.5839999914169312
+      ],
+      "center_vox": [
+        395.9999978542328,
+        1586.00003272295,
+        1651.0000340640545
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M2/micr/sub-AS177M2_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.164038185030222,
+        -9.464000195264816,
+        -1.4079999923706055
+      ],
+      "center_vox": [
+        351.9999980926514,
+        2366.000048816204,
+        2041.0095462575555
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        1.6640077829360962,
+        -7.956000164151192,
+        -2.111999988555908
+      ],
+      "center_vox": [
+        527.9999971389772,
+        1989.000041037798,
+        416.00194573402405
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M3",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        8.580040130764246,
+        -5.304000109434128,
+        -2.947999984025955
+      ],
+      "center_vox": [
+        736.9999960064888,
+        1326.000027358532,
+        2145.0100326910615
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M3/micr/sub-AS177M3_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        5.356000110507011,
+        -10.66000021994114,
+        -0.3959999978542328
+      ],
+      "center_vox": [
+        98.9999994635582,
+        2665.000054985285,
+        1339.0000276267529
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        5.200000107288361,
+        -4.784000098705292,
+        -2.727999985218048
+      ],
+      "center_vox": [
+        681.9999963045121,
+        1196.000024676323,
+        1300.0000268220901
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    },
+    {
+      "subject_id": "sub-AS177M4",
+      "dataset_root": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch",
+      "zarr_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/derivatives/resampled/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_res-4um_SPIM.ome.zarr",
+      "zarr_source": "resampled",
+      "fullres_zarr": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/bids/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_SPIM.ome.zarr",
+      "stain_channel": 0,
+      "center_phys": [
+        10.036000207066536,
+        -12.168000251054764,
+        -3.3879999816417694
+      ],
+      "center_vox": [
+        846.9999954104425,
+        3042.000062763691,
+        2509.000051766634
+      ],
+      "dseg_path": "/nfs/trident3/lightsheet/prado/mouse_app_vaccine_batch/derivatives/spimquant_c270a40_atropos/sub-AS177M4/micr/sub-AS177M4_sample-brain_acq-imaris4x_seg-roi22_from-ABAv3_level-5_desc-deform_dseg.nii.gz",
+      "labels_path": "/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/data/reference/seg-roi22_dseg.tsv"
+    }
+  ]
+}

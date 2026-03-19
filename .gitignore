@@ -10,3 +10,6 @@ __pycache__/
 *.pyc
 *.pyo
 core
+lightning_logs
+qc_images*
+ft

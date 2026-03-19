@@ -79,6 +79,16 @@ def resolve_stain_channel(zarr_path: str, stain: str, fullres_zarr_path: Optiona
     return STAIN_CHANNEL_MAP_FALLBACK.get(stain, 0)
 
 
+def _prefer_standard_acq(paths: List[Path]) -> List[Path]:
+    """Filter zarr paths to prefer standard acq-imaris4x over angled variants.
+
+    Excludes 45deg/90deg acquisitions when a standard one is available.
+    If only angled ones exist, returns them as-is.
+    """
+    standard = [p for p in paths if "45deg" not in p.name and "90deg" not in p.name]
+    return standard if standard else paths
+
+
 def discover_subjects(
     dataset_root: str,
     seg_level: str = "roi22",
@@ -131,9 +141,11 @@ def discover_subjects(
     for sub_dir in sub_dirs:
         subject_id = sub_dir.name
 
-        # Always locate the full-res zarr (needed for omero channel metadata)
+        # Always locate the full-res zarr (needed for omero channel metadata).
+        # Prefer the standard acq-imaris4x acquisition; skip 45deg/90deg variants.
         fullres_micr = sub_dir / "micr"
         fullres_candidates = sorted(fullres_micr.glob("*_SPIM.ome.zarr"))
+        fullres_candidates = _prefer_standard_acq(fullres_candidates)
         fullres_zarr = str(fullres_candidates[0]) if fullres_candidates else None
 
         # Try resampled 4um zarr first, then fall back to full-res
@@ -143,6 +155,7 @@ def discover_subjects(
         if resampled_dir.exists():
             resampled_micr = resampled_dir / subject_id / "micr"
             res4um = sorted(resampled_micr.glob("*_res-4um_SPIM.ome.zarr"))
+            res4um = _prefer_standard_acq(res4um)
             if res4um:
                 zarr_path = str(res4um[0])
                 zarr_source = "resampled"
@@ -199,10 +212,8 @@ def discover_subjects(
 def build_patch_manifest(
     dataset_roots: Sequence[str],
     stain: str = "Abeta",
-    regions: Sequence[str] = (
-        "L_Isocortex", "R_Isocortex",
-        "L_Hippocampal formation", "R_Hippocampal formation",
-    ),
+    regions: Optional[Sequence[str]] = None,
+    region_groups: Optional[Dict[str, tuple]] = None,
     n_patches: int = 10000,
     patch_size: int = 256,
     crop_size: int = 96,
@@ -216,12 +227,45 @@ def build_patch_manifest(
     specified brain regions in physical coordinates, and returns a
     manifest dict ready for JSON serialization.
 
+    Regions can be specified in two ways:
+      - ``regions``: flat list of region names, sampled uniformly.
+      - ``region_groups``: dict mapping group name to
+        ``(region_names_list, weight)`` for weighted sampling.
+        Weights are normalised to sum to 1.
+
     Centers are in physical space (mm) so they can be used to crop from
     any resolution level of the OME-Zarr volume.
     """
     from zarrnii import ZarrNiiAtlas
 
     rng = np.random.default_rng(seed)
+
+    # Resolve region specification
+    if region_groups is not None:
+        # Weighted sampling: compute n_patches per group
+        total_weight = sum(w for _, w in region_groups.values())
+        group_patches = {}
+        allocated = 0
+        group_names = list(region_groups.keys())
+        for i, name in enumerate(group_names):
+            region_list, weight = region_groups[name]
+            if i == len(group_names) - 1:
+                n = n_patches - allocated  # last group gets remainder
+            else:
+                n = int(round(n_patches * weight / total_weight))
+            group_patches[name] = (region_list, n)
+            allocated += n
+        all_region_names = []
+        for region_list, _ in region_groups.values():
+            all_region_names.extend(region_list)
+        print(f"Region groups:")
+        for name, (rlist, n) in group_patches.items():
+            print(f"  {name}: {n} patches from {rlist}")
+    elif regions is not None:
+        group_patches = {"all": (list(regions), n_patches)}
+        all_region_names = list(regions)
+    else:
+        raise ValueError("Must specify either regions or region_groups")
 
     # Discover subjects across all dataset roots
     all_subjects: List[Dict[str, str]] = []
@@ -240,29 +284,34 @@ def build_patch_manifest(
     n_subjects = len(all_subjects)
     print(f"Total subjects: {n_subjects}")
 
-    # Distribute patches evenly across subjects
-    base = n_patches // n_subjects
-    remainder = n_patches % n_subjects
-    patches_per_subject = [base + (1 if i < remainder else 0)
-                           for i in range(n_subjects)]
-
     # Sample patch centers per subject
     patches: List[Dict] = []
-    for subj, n_subj in zip(all_subjects, patches_per_subject):
-        if n_subj == 0:
-            continue
-
+    for subj in all_subjects:
         atlas = ZarrNiiAtlas.from_files(
             dseg_path=subj["dseg_path"],
             labels_path=subj["labels_path"],
         )
 
-        subj_seed = int(rng.integers(0, 2**31))
-        centers = atlas.sample_region_patches(
-            n_patches=n_subj,
-            region_ids=list(regions),
-            seed=subj_seed,
-        )
+        # Sample from each region group separately, distribute evenly per subject
+        centers = []
+        for group_name, (region_list, group_n) in group_patches.items():
+            n_this_subj = group_n // n_subjects
+            # Distribute remainder across first subjects
+            subj_idx = all_subjects.index(subj)
+            if subj_idx < (group_n % n_subjects):
+                n_this_subj += 1
+            if n_this_subj == 0:
+                continue
+            subj_seed = int(rng.integers(0, 2**31))
+            grp_centers = atlas.sample_region_patches(
+                n_patches=n_this_subj,
+                region_ids=region_list,
+                seed=subj_seed,
+            )
+            centers.extend(grp_centers)
+
+        if not centers:
+            continue
 
         # Resolve stain channel from omero metadata
         stain_ch = resolve_stain_channel(
@@ -321,11 +370,18 @@ def build_patch_manifest(
     # Shuffle so subjects are interleaved during training
     rng.shuffle(patches)
 
+    # Store region config
+    if region_groups is not None:
+        regions_config = {name: {"regions": rlist, "weight": w}
+                          for name, (rlist, w) in region_groups.items()}
+    else:
+        regions_config = {"all": {"regions": all_region_names, "weight": 1.0}}
+
     manifest = {
         "config": {
             "dataset_roots": list(dataset_roots),
             "stain": stain,
-            "regions": list(regions),
+            "region_groups": regions_config,
             "n_patches": len(patches),
             "patch_size": patch_size,
             "crop_size": crop_size,
