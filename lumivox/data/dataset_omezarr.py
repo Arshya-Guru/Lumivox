@@ -1,12 +1,10 @@
-"""OME-Zarr patch dataset with lazy loading from a pre-built manifest.
+"""OME-Zarr patch dataset with lazy loading and localscratch write-through.
 
 Reads patches on-the-fly from OME-Zarr volumes at coordinates defined in a
-manifest file (built by ``lumivox.data.manifest``).  Each ``__getitem__``
-call lazily reads one region from the zarr volume, extracts an overlapping
-crop pair for SSL pretraining, and applies augmentations.
-
-The data is **not** loaded into memory up front -- zarr chunks are fetched
-on demand, so even terabyte-scale datasets can be used without staging.
+manifest file (built by ``lumivox.data.manifest``).  During epoch 1, each
+patch is written to ``localscratch_dir`` as a ``.npy`` file after being read
+from zarr.  From epoch 2 onward, patches are loaded directly from local disk,
+eliminating NFS latency and DDP sync stalls.
 
 Usage:
     from lumivox.data.dataset_omezarr import create_omezarr_dataloader
@@ -17,6 +15,8 @@ from __future__ import annotations
 
 import ctypes
 import gc
+import os
+from pathlib import Path
 from typing import Dict, Optional
 
 import numpy as np
@@ -33,7 +33,7 @@ except OSError:
         pass
 
 # Flush zarr caches every N samples per worker to prevent heap fragmentation
-_CACHE_FLUSH_INTERVAL = 1000
+_CACHE_FLUSH_INTERVAL = 5000
 
 from lumivox.augmentations.crop_pair import extract_crop_pair
 from lumivox.augmentations.legacy_aug import LegacyAugment3D, augment_config as legacy_augment_config
@@ -48,17 +48,10 @@ def _omezarr_worker_init_fn(worker_id: int) -> None:
 
 
 class OMEZarrPatchDataset(Dataset):
-    """Lazy-loading dataset that reads patches from OME-Zarr volumes.
+    """Lazy-loading dataset with localscratch write-through caching.
 
-    Patch locations come from a manifest built by
-    :func:`lumivox.data.manifest.build_patch_manifest`.  For each sample the
-    dataset:
-
-    1. Opens the subject's OME-Zarr volume (cached per worker process).
-    2. Reads a ``patch_size`` voxel region centred on the manifest coordinate.
-    3. Calls :func:`extract_crop_pair` to get two overlapping ``crop_size``
-       sub-crops for SSL.
-    4. Applies per-method augmentations.
+    Epoch 1: reads from zarr, writes each patch to localscratch as .npy.
+    Epoch 2+: reads from localscratch (local SSD), zarr handles freed.
 
     Args:
         manifest_path: path to manifest JSON.
@@ -67,6 +60,8 @@ class OMEZarrPatchDataset(Dataset):
         patch_size: override the patch size stored in the manifest.
         min_overlap_per_axis: overlap fraction for crop pairs.
         normalize: ``'zscore'`` (default), ``'minmax'``, or ``None``.
+        localscratch_dir: path for write-through cache (default:
+            ``/localscratch/lumivox_patches``).  Set to ``None`` to disable.
     """
 
     def __init__(
@@ -77,6 +72,7 @@ class OMEZarrPatchDataset(Dataset):
         patch_size: Optional[int] = None,
         min_overlap_per_axis: float = 0.5,
         normalize: str = "zscore",
+        localscratch_dir: Optional[str] = "/localscratch/lumivox_patches",
     ):
         super().__init__()
         self.manifest = load_manifest(manifest_path)
@@ -93,6 +89,13 @@ class OMEZarrPatchDataset(Dataset):
         self._vol_cache: Dict[str, object] = {}
         self._samples_since_flush = 0
 
+        # Localscratch write-through cache
+        self._local_dir: Optional[Path] = None
+        if localscratch_dir is not None:
+            self._local_dir = Path(localscratch_dir)
+            self._local_dir.mkdir(parents=True, exist_ok=True)
+        self._zarr_freed = False
+
         # Augmentations (same as LumivoxDataset)
         if method == "byol3d-legacy":
             self.view1_aug = LegacyAugment3D(**legacy_augment_config["view1"])
@@ -102,23 +105,66 @@ class OMEZarrPatchDataset(Dataset):
             self.view1_aug = SharedAugmentation(**aug_cfg["view1"])
             self.view2_aug = SharedAugmentation(**aug_cfg["view2"])
 
+        n_cached = self._count_cached() if self._local_dir else 0
         print(
             f"OMEZarrPatchDataset: {len(self.patches)} patches, "
             f"stain={self.cfg['stain']}, method={method}, "
-            f"patch_size={self.patch_size}, crop_size={self.crop_size}"
+            f"patch_size={self.patch_size}, crop_size={self.crop_size}, "
+            f"localscratch={self._local_dir} ({n_cached} already cached)"
         )
+
+    # ------------------------------------------------------------------
+    # Localscratch cache
+    # ------------------------------------------------------------------
+
+    def _local_path(self, idx: int) -> Optional[Path]:
+        """Return the localscratch .npy path for a given manifest index."""
+        if self._local_dir is None:
+            return None
+        return self._local_dir / f"patch_{idx:06d}.npy"
+
+    def _count_cached(self) -> int:
+        """Count how many patches are already on localscratch."""
+        if self._local_dir is None or not self._local_dir.exists():
+            return 0
+        return len(list(self._local_dir.glob("patch_*.npy")))
+
+    def _read_local(self, idx: int) -> Optional[np.ndarray]:
+        """Try to read a patch from localscratch. Returns None if not cached."""
+        path = self._local_path(idx)
+        if path is not None and path.exists():
+            return np.load(path, mmap_mode="r").astype(np.float32)
+        return None
+
+    def _write_local(self, idx: int, vol: np.ndarray) -> None:
+        """Write a patch to localscratch (uint16 to save space)."""
+        path = self._local_path(idx)
+        if path is None or path.exists():
+            return
+        # Save as uint16 (original zarr dtype) to minimize disk usage
+        # vol is float32 at this point but was cast from uint16
+        # Clamp and convert back
+        vol_u16 = np.clip(vol, 0, 65535).astype(np.uint16)
+        np.save(path, vol_u16)
+
+    def _maybe_free_zarr(self):
+        """Once all patches are cached locally, free zarr handles + memory."""
+        if self._zarr_freed or self._local_dir is None:
+            return
+        n_cached = self._count_cached()
+        if n_cached >= len(self.patches):
+            self._vol_cache.clear()
+            gc.collect()
+            _malloc_trim()
+            self._zarr_freed = True
+            print(f"OMEZarrPatchDataset: all {n_cached} patches cached on localscratch, zarr handles freed")
 
     # ------------------------------------------------------------------
     # Lazy volume access
     # ------------------------------------------------------------------
 
     def _get_volume(self, zarr_path: str, stain_channel: int, zarr_source: str = "resampled"):
-        """Open (or retrieve from cache) a ZarrNii volume.
-
-        For full-res zarr files, ``downsample_near_isotropic=True`` is used
-        so that zarrnii automatically picks the pyramid level closest to
-        isotropic voxels.
-        """
+        """Open (or retrieve from cache) a ZarrNii volume."""
         cache_key = f"{zarr_path}::ch{stain_channel}"
         if cache_key not in self._vol_cache:
             from zarrnii import ZarrNii
@@ -136,13 +182,8 @@ class OMEZarrPatchDataset(Dataset):
     # ------------------------------------------------------------------
 
     def _crop_by_voxel(self, znimg, center_vox: list) -> np.ndarray:
-        """Extract a patch by direct voxel indexing (bypasses crop_centered).
-
-        Used for resampled zarr files where the affine metadata is unreliable
-        for crop_centered.  ``center_vox`` is in (Z, Y, X) order matching the
-        zarr spatial axes.
-        """
-        darr = znimg.darr  # (C, Z, Y, X) or (1, Z, Y, X)
+        """Extract a patch by direct voxel indexing (bypasses crop_centered)."""
+        darr = znimg.darr
         half = self.patch_size // 2
 
         cz = int(round(center_vox[0]))
@@ -167,6 +208,8 @@ class OMEZarrPatchDataset(Dataset):
 
     def _maybe_flush_cache(self):
         """Periodically clear zarr caches and return heap memory to OS."""
+        if self._zarr_freed:
+            return  # no zarr handles to flush
         self._samples_since_flush += 1
         if self._samples_since_flush >= _CACHE_FLUSH_INTERVAL:
             self._vol_cache.clear()
@@ -179,7 +222,6 @@ class OMEZarrPatchDataset(Dataset):
         try:
             return self._load_sample(idx)
         except Exception:
-            # Fall back to a random other patch on error
             fallback = int(np.random.randint(0, len(self)))
             try:
                 return self._load_sample(fallback)
@@ -190,21 +232,31 @@ class OMEZarrPatchDataset(Dataset):
 
     def _load_sample(self, idx: int) -> Dict[str, torch.Tensor]:
         entry = self.patches[idx]
-        zarr_path = entry["zarr_path"]
-        zarr_source = entry.get("zarr_source", "resampled")
-        stain_channel = entry.get("stain_channel", 0)
 
-        znimg = self._get_volume(zarr_path, stain_channel, zarr_source)
+        # Try localscratch first
+        vol = self._read_local(idx)
 
-        if "center_vox" in entry:
-            # Direct voxel slicing (resampled zarr — no crop_centered)
-            vol = self._crop_by_voxel(znimg, entry["center_vox"])
-        else:
-            # Physical coordinate cropping (full-res zarr)
-            center = tuple(entry["center_phys"])
-            ps = self.patch_size
-            patch_zn = znimg.crop_centered(center, patch_size=(ps, ps, ps))
-            vol = patch_zn.darr.compute().astype(np.float32)
+        if vol is None:
+            # Read from zarr
+            zarr_path = entry["zarr_path"]
+            zarr_source = entry.get("zarr_source", "resampled")
+            stain_channel = entry.get("stain_channel", 0)
+
+            znimg = self._get_volume(zarr_path, stain_channel, zarr_source)
+
+            if "center_vox" in entry:
+                vol = self._crop_by_voxel(znimg, entry["center_vox"])
+            else:
+                center = tuple(entry["center_phys"])
+                ps = self.patch_size
+                patch_zn = znimg.crop_centered(center, patch_size=(ps, ps, ps))
+                vol = patch_zn.darr.compute().astype(np.float32)
+
+            # Write-through to localscratch
+            self._write_local(idx, vol)
+
+            # Check if all patches are now cached
+            self._maybe_free_zarr()
 
         # Squeeze to [C, D, H, W]
         while vol.ndim > 4 and vol.shape[0] == 1:
@@ -261,6 +313,7 @@ def create_omezarr_dataloader(
     normalize: str = "zscore",
     num_workers: int = 4,
     pin_memory: bool = True,
+    localscratch_dir: Optional[str] = "/localscratch/lumivox_patches",
 ) -> DataLoader:
     """Create a DataLoader for SSL pretraining from an OME-Zarr manifest."""
     dataset = OMEZarrPatchDataset(
@@ -270,6 +323,7 @@ def create_omezarr_dataloader(
         patch_size=patch_size,
         min_overlap_per_axis=min_overlap_per_axis,
         normalize=normalize,
+        localscratch_dir=localscratch_dir,
     )
 
     return DataLoader(

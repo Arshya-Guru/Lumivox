@@ -17,17 +17,18 @@ if [[ "$1" == "--interval" ]]; then
     INTERVAL=$2
 fi
 
-# Find the lightning CSV log (most recent version)
+# Find the lightning CSV log (search all checkpoint dirs)
 find_training_log() {
     local latest=""
-    for d in lightning_logs/version_*/; do
-        if [[ -d "$d" ]]; then
-            latest="$d"
-        fi
+    # Check save_dir-specific locations first, then fallback
+    for base in checkpoints/*/lightning_logs checkpoints/*/lightning_logs/lightning_logs lightning_logs; do
+        for d in ${base}/version_*/; do
+            if [[ -d "$d" && -f "${d}metrics.csv" ]]; then
+                latest="${d}metrics.csv"
+            fi
+        done
     done
-    if [[ -n "$latest" && -f "${latest}metrics.csv" ]]; then
-        echo "${latest}metrics.csv"
-    fi
+    echo "$latest"
 }
 
 # Print header

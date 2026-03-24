@@ -13,3 +13,5 @@ core
 lightning_logs
 qc_images*
 ft
+old_ft
+checkpoints/

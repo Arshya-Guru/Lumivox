@@ -85,6 +85,9 @@ class PretrainLightningModule(pl.LightningModule):
             self.base_ema = cfg.get("base_ema", 0.99)
             self.max_steps = cfg.get("max_steps", 100000)
 
+        # Step offset for resume — shifts LR and EMA schedules
+        self.step_offset = cfg.get("step_offset", 0)
+
     def training_step(self, batch: Dict[str, torch.Tensor], batch_idx: int):
         view1 = batch["view1"]
         view2 = batch["view2"]
@@ -110,7 +113,7 @@ class PretrainLightningModule(pl.LightningModule):
             loss_21 = regression_loss(o2["prediction"], t1["projection"].detach())
             loss = loss_12 + loss_21
 
-            tau = cosine_ema_schedule(self.global_step, self.base_ema, self.max_steps)
+            tau = cosine_ema_schedule(self.global_step + self.step_offset, self.base_ema, self.max_steps)
             self.log("train/loss", loss, prog_bar=True, sync_dist=True)
             self.log("train/tau", tau, prog_bar=True)
 
@@ -120,7 +123,7 @@ class PretrainLightningModule(pl.LightningModule):
     def on_train_batch_end(self, outputs, batch, batch_idx):
         """EMA update for BYOL models after each step."""
         if self.method in ("nnbyol3d", "byol3d-legacy"):
-            tau = cosine_ema_schedule(self.global_step, self.base_ema, self.max_steps)
+            tau = cosine_ema_schedule(self.global_step + self.step_offset, self.base_ema, self.max_steps)
             update_target_ema(self.online, self.target, tau)
 
     def configure_optimizers(self):
@@ -163,6 +166,12 @@ class PretrainLightningModule(pl.LightningModule):
         max_steps = self.cfg.get("max_steps", 100000)
         scheduler = CosineWarmupScheduler(optimizer, warmup_steps, max_steps)
 
+        # Fast-forward scheduler if resuming from weights
+        if self.step_offset > 0:
+            for _ in range(self.step_offset):
+                scheduler.step()
+            print(f"  LR scheduler fast-forwarded by {self.step_offset} steps")
+
         return {
             "optimizer": optimizer,
             "lr_scheduler": {"scheduler": scheduler, "interval": "step", "frequency": 1},
@@ -176,6 +185,7 @@ class PretrainLightningModule(pl.LightningModule):
                 manifest_path=manifest,
                 method=self.method,
                 crop_size=self.cfg.get("crop_size", 96),
+                localscratch_dir=self.cfg.get("localscratch_dir", "/localscratch/lumivox_patches"),
             )
             return DataLoader(
                 dataset,
@@ -262,6 +272,119 @@ class CheckpointCallback(Callback):
         self._save(trainer, pl_module, path)
 
 
+class TrainingPlotCallback(Callback):
+    """Generate training progress figures from logged metrics."""
+
+    def __init__(self, save_dir: str, plot_every_epochs: int = 5):
+        self.save_dir = Path(save_dir)
+        self.plot_every = plot_every_epochs
+        self.epoch_losses = []
+        self.epoch_lrs = []
+        self.epoch_accs = []  # SimCLR only
+        self.epoch_taus = []  # BYOL only
+        self.step_losses = []
+
+    def on_train_batch_end(self, trainer, pl_module, outputs, batch, batch_idx):
+        loss = trainer.callback_metrics.get("train/loss")
+        if loss is not None:
+            self.step_losses.append(loss.item() if hasattr(loss, "item") else float(loss))
+
+    def on_train_epoch_end(self, trainer, pl_module):
+        # Collect epoch-level metrics
+        loss = trainer.callback_metrics.get("train/loss")
+        lr = trainer.callback_metrics.get("train/lr")
+        acc = trainer.callback_metrics.get("train/acc")
+        tau = trainer.callback_metrics.get("train/tau")
+
+        if loss is not None:
+            self.epoch_losses.append(loss.item() if hasattr(loss, "item") else float(loss))
+        if lr is not None:
+            self.epoch_lrs.append(lr.item() if hasattr(lr, "item") else float(lr))
+        if acc is not None:
+            self.epoch_accs.append(acc.item() if hasattr(acc, "item") else float(acc))
+        if tau is not None:
+            self.epoch_taus.append(tau.item() if hasattr(tau, "item") else float(tau))
+
+        epoch = trainer.current_epoch + 1
+        if trainer.is_global_zero and (epoch % self.plot_every == 0 or epoch == 1):
+            self._make_plots(pl_module.method, epoch)
+
+    def on_train_end(self, trainer, pl_module):
+        if trainer.is_global_zero:
+            self._make_plots(pl_module.method, trainer.current_epoch + 1, final=True)
+
+    def _make_plots(self, method, epoch, final=False):
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+
+        is_byol = method in ("nnbyol3d", "byol3d-legacy")
+        n_panels = 4 if is_byol else (4 if self.epoch_accs else 3)
+
+        fig, axes = plt.subplots(1, n_panels, figsize=(6 * n_panels, 5))
+
+        # Panel 1: Epoch loss
+        ax = axes[0]
+        if self.epoch_losses:
+            ax.plot(range(1, len(self.epoch_losses) + 1), self.epoch_losses, "b-", lw=1.5)
+            ax.set_xlabel("Epoch")
+            ax.set_ylabel("Loss")
+            ax.set_title("Loss per Epoch")
+            ax.grid(True, alpha=0.3)
+
+        # Panel 2: Step loss (smoothed)
+        ax = axes[1]
+        if self.step_losses:
+            raw = self.step_losses
+            # EMA smoothing
+            alpha = 0.01
+            smoothed = [raw[0]]
+            for v in raw[1:]:
+                smoothed.append(alpha * v + (1 - alpha) * smoothed[-1])
+            ax.plot(smoothed, "b-", lw=0.8, alpha=0.8, label="smoothed")
+            ax.set_xlabel("Step")
+            ax.set_ylabel("Loss")
+            ax.set_title("Loss per Step (EMA smoothed)")
+            ax.grid(True, alpha=0.3)
+
+        # Panel 3: Learning rate
+        ax = axes[2]
+        if self.epoch_lrs:
+            ax.plot(range(1, len(self.epoch_lrs) + 1), self.epoch_lrs, "g-", lw=1.5)
+            ax.set_xlabel("Epoch")
+            ax.set_ylabel("LR")
+            ax.set_title("Learning Rate Schedule")
+            ax.grid(True, alpha=0.3)
+            ax.ticklabel_format(style="sci", axis="y", scilimits=(0, 0))
+
+        # Panel 4: Method-specific
+        if is_byol and len(axes) > 3:
+            ax = axes[3]
+            if self.epoch_taus:
+                ax.plot(range(1, len(self.epoch_taus) + 1), self.epoch_taus, "r-", lw=1.5)
+                ax.set_xlabel("Epoch")
+                ax.set_ylabel("EMA tau")
+                ax.set_title("EMA Schedule")
+                ax.grid(True, alpha=0.3)
+        elif self.epoch_accs and len(axes) > 3:
+            ax = axes[3]
+            ax.plot(range(1, len(self.epoch_accs) + 1), self.epoch_accs, "r-", lw=1.5)
+            ax.set_xlabel("Epoch")
+            ax.set_ylabel("Accuracy")
+            ax.set_title("NT-Xent Top-1 Accuracy")
+            ax.grid(True, alpha=0.3)
+
+        tag = "final" if final else f"epoch{epoch:04d}"
+        fig.suptitle(f"{method} pretraining — {tag}", fontsize=14)
+        plt.tight_layout()
+
+        self.save_dir.mkdir(parents=True, exist_ok=True)
+        path = self.save_dir / f"training_progress_{tag}.png"
+        fig.savefig(path, dpi=150, bbox_inches="tight")
+        plt.close(fig)
+        print(f"  Saved training plot: {path}")
+
+
 def main():
     import warnings
     warnings.filterwarnings("ignore", message=".*AccumulateGrad.*stream.*")
@@ -294,8 +417,12 @@ def main():
     parser.add_argument("--devices", type=int, default=None)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--accumulate-grad-batches", type=int, default=1,
+                        help="Accumulate gradients over N batches (effective batch = batch_size * N)")
     parser.add_argument("--resume", type=str, default=None,
                         help="Path to Lightning checkpoint to resume from (last.ckpt)")
+    parser.add_argument("--resume-weights", type=str, default=None,
+                        help="Path to Lumivox .pt checkpoint to load weights from (2-GPU compatible)")
     args = parser.parse_args()
 
     # Compute steps
@@ -315,7 +442,8 @@ def main():
         if n > 0:
             est_samples = n
 
-    steps_per_epoch = max(est_samples // (args.batch_size * num_devices), 1)
+    accum = args.accumulate_grad_batches
+    steps_per_epoch = max(est_samples // (args.batch_size * num_devices * accum), 1)
     max_steps = args.epochs * steps_per_epoch
     warmup_steps = min(args.warmup_epochs * steps_per_epoch, max_steps // 10)
 
@@ -344,7 +472,45 @@ def main():
     if torch.cuda.is_available():
         torch.set_float32_matmul_precision("high")
 
+    # Clear stale CSV logger to avoid header conflicts between methods.
+    # Each method gets its own log dir so parallel runs don't conflict.
+    import shutil
+    stale_logs = Path(args.save_dir) / "lightning_logs"
+    if stale_logs.exists() and args.resume is None and args.resume_weights is None:
+        shutil.rmtree(stale_logs)
+
     model = PretrainLightningModule(cfg)
+
+    # Load weights from Lumivox .pt checkpoint (not Lightning .ckpt)
+    if args.resume_weights is not None:
+        ckpt = torch.load(args.resume_weights, map_location="cpu", weights_only=False)
+        method = args.method
+        if method == "simclr":
+            model.model.load_state_dict(ckpt["model_state_dict"])
+        else:
+            model.online.load_state_dict(ckpt["online_state_dict"])
+            model.target.load_state_dict(ckpt["target_state_dict"])
+        resume_epoch = ckpt.get("epoch", 0)
+        resume_step = ckpt.get("global_step", 0)
+
+        # Recompute max_steps to cover the FULL schedule (original + remaining).
+        # The schedule (LR cosine + EMA tau) needs to span the total intended
+        # training, not just the resume portion. step_offset fast-forwards to
+        # the right position within that total schedule.
+        total_max_steps = resume_step + max_steps  # original steps + new epochs
+        total_warmup = min(args.warmup_epochs * steps_per_epoch, total_max_steps // 10)
+
+        model.step_offset = resume_step
+        model.cfg["step_offset"] = resume_step
+        model.cfg["max_steps"] = total_max_steps
+        model.cfg["warmup_steps"] = total_warmup
+
+        # Also update max_steps for the Trainer
+        max_steps = args.epochs * steps_per_epoch  # Trainer only runs the new epochs
+
+        print(f"Loaded weights from {args.resume_weights} (epoch {resume_epoch}, step {resume_step})")
+        print(f"  Schedule total: {total_max_steps} steps (offset={resume_step} + new={max_steps})")
+        print(f"  LR and EMA schedules continue from step {resume_step}/{total_max_steps}")
 
     try:
         from lightning.pytorch.callbacks import ModelCheckpoint
@@ -353,13 +519,14 @@ def main():
 
     callbacks = [
         CheckpointCallback(save_dir=args.save_dir, save_every_epochs=args.save_every),
+        TrainingPlotCallback(save_dir=args.save_dir, plot_every_epochs=args.save_every),
         # Lightning-native checkpoint for resume (saves full training state)
         ModelCheckpoint(
             dirpath=args.save_dir,
             filename="last",
             save_last=True,
             every_n_epochs=1,
-            save_top_k=0,  # only keep last.ckpt
+            save_top_k=1,
         ),
     ]
 
@@ -374,13 +541,22 @@ def main():
     else:
         strategy = "auto"
 
+    try:
+        from lightning.pytorch.loggers import CSVLogger
+    except ImportError:
+        from pytorch_lightning.loggers import CSVLogger
+
+    logger = CSVLogger(save_dir=args.save_dir, name="lightning_logs")
+
     trainer = pl.Trainer(
         accelerator=accelerator,
         devices=num_devices,
         strategy=strategy,
         max_epochs=args.epochs,
         max_steps=max_steps,
+        accumulate_grad_batches=accum,
         callbacks=callbacks,
+        logger=logger,
         enable_progress_bar=True,
         precision=args.precision,
         gradient_clip_val=1.0,

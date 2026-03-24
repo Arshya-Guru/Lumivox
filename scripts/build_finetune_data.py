@@ -19,6 +19,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -73,14 +74,19 @@ SEED = 99
 # ---------------------------------------------------------------------------
 
 def distribute_patches(n_patches, n_subjects, region_groups, rng):
-    """Compute per-subject, per-region patch counts."""
+    """Compute per-subject, per-region patch counts.
+
+    Spreads patches across subjects as evenly as possible while respecting
+    region weights.  Shuffles subject order per region group so different
+    datasets get coverage even when n_patches < n_subjects.
+    """
     # First distribute across regions by weight
     group_totals = {}
     allocated = 0
     groups = list(region_groups.keys())
+    total_weight = sum(w for _, w in region_groups.values())
     for i, name in enumerate(groups):
         _, weight = region_groups[name]
-        total_weight = sum(w for _, w in region_groups.values())
         if i == len(groups) - 1:
             n = n_patches - allocated
         else:
@@ -88,24 +94,129 @@ def distribute_patches(n_patches, n_subjects, region_groups, rng):
         group_totals[name] = n
         allocated += n
 
-    # Then distribute each group's patches across subjects
-    assignments = []  # list of (subject_idx, group_name, region_list)
+    # Spread each group's patches across a shuffled subject order
+    # so all datasets get representation, not just the first alphabetically
+    assignments = []
+    subject_indices = list(range(n_subjects))
     for group_name, n_group in group_totals.items():
         region_list = region_groups[group_name][0]
+        shuffled = subject_indices.copy()
+        rng.shuffle(shuffled)
         for i in range(n_group):
-            subj_idx = i % n_subjects
+            subj_idx = shuffled[i % n_subjects]
             assignments.append((subj_idx, group_name, region_list))
 
     rng.shuffle(assignments)
     return assignments, group_totals
 
 
+def find_fieldfrac(spimquant_micr: Path, stain: str) -> Optional[Path]:
+    """Find the subject-space fieldfrac NIfTI for a given stain.
+
+    Tries otsu+k3i2 first, then th900. Skips template-space (space-ABAv3) files.
+    """
+    for method in ["otsu+k3i2", "th900"]:
+        candidates = sorted(spimquant_micr.glob(
+            f"*_stain-{stain}_level-5_desc-{method}_fieldfrac.nii.gz"
+        ))
+        # Filter out template-space versions
+        candidates = [c for c in candidates if "space-ABAv3" not in c.name]
+        if candidates:
+            return candidates[0]
+    # Also try case-insensitive stain matching
+    for method in ["otsu+k3i2", "th900"]:
+        for f in spimquant_micr.glob(f"*_level-5_desc-{method}_fieldfrac.nii.gz"):
+            if "space-ABAv3" not in f.name and stain.lower() in f.name.lower():
+                return f
+    return None
+
+
+def extract_seg_crop(
+    fieldfrac_path: Path,
+    center_phys: list,
+    dseg_affine_inv,
+    dseg_shape: tuple,
+    crop_size: int,
+) -> Optional[np.ndarray]:
+    """Extract and upsample a seg mask crop from the level-5 fieldfrac NIfTI.
+
+    The fieldfrac shares the same voxel grid as the dseg. We use the dseg
+    affine to map from physical space to level-5 voxels, extract the region
+    corresponding to the 128³ crop at 4µm, and upsample to 128³.
+    """
+    from scipy.ndimage import zoom as ndi_zoom
+
+    ff_img = nib.load(str(fieldfrac_path))
+    ff_data = ff_img.get_fdata().astype(np.float32)
+
+    # Center in dseg/level-5 voxel space
+    vox_center = dseg_affine_inv @ np.array(center_phys)
+
+    # Crop extent in physical space: 128 * 4µm = 0.512mm per axis
+    crop_extent_mm = crop_size * 0.004  # mm
+
+    # Compute level-5 voxel sizes from dseg affine (absolute diagonal values)
+    # dseg_affine_inv maps physical→voxel, so voxel_size = 1/|inv_diag|
+    # But easier: just compute how many level-5 voxels span the crop
+    # Use the dseg affine inverse to map two points and get the span
+    corner_lo = dseg_affine_inv @ np.array([
+        center_phys[0] - crop_extent_mm / 2,
+        center_phys[1] - crop_extent_mm / 2,
+        center_phys[2] - crop_extent_mm / 2,
+    ])
+    corner_hi = dseg_affine_inv @ np.array([
+        center_phys[0] + crop_extent_mm / 2,
+        center_phys[1] + crop_extent_mm / 2,
+        center_phys[2] + crop_extent_mm / 2,
+    ])
+
+    # Get integer voxel bounds (handle axis flips from negative affine entries)
+    for dim in range(3):
+        if corner_lo[dim] > corner_hi[dim]:
+            corner_lo[dim], corner_hi[dim] = corner_hi[dim], corner_lo[dim]
+
+    i0 = max(0, int(np.floor(corner_lo[0])))
+    i1 = min(ff_data.shape[0], int(np.ceil(corner_hi[0])) + 1)
+    j0 = max(0, int(np.floor(corner_lo[1])))
+    j1 = min(ff_data.shape[1], int(np.ceil(corner_hi[1])) + 1)
+    k0 = max(0, int(np.floor(corner_lo[2])))
+    k1 = min(ff_data.shape[2], int(np.ceil(corner_hi[2])) + 1)
+
+    if i1 <= i0 or j1 <= j0 or k1 <= k0:
+        return None
+
+    seg_chunk = ff_data[i0:i1, j0:j1, k0:k1]
+
+    if seg_chunk.size == 0:
+        return None
+
+    # Upsample to crop_size³ using nearest-neighbor (fieldfrac is continuous 0-1
+    # but nearest avoids blurring the boundaries)
+    zoom_factors = (
+        crop_size / seg_chunk.shape[0],
+        crop_size / seg_chunk.shape[1],
+        crop_size / seg_chunk.shape[2],
+    )
+    seg_upsampled = ndi_zoom(seg_chunk, zoom_factors, order=0)
+
+    # Ensure exact shape
+    if seg_upsampled.shape != (crop_size, crop_size, crop_size):
+        result = np.zeros((crop_size, crop_size, crop_size), dtype=np.float32)
+        slices = tuple(slice(0, min(s, crop_size)) for s in seg_upsampled.shape)
+        result[slices[0], slices[1], slices[2]] = seg_upsampled[slices[0], slices[1], slices[2]]
+        seg_upsampled = result
+
+    return seg_upsampled.astype(np.float32)
+
+
 def generate_qc_and_crop(
     subj, center_phys, center_vox, stain_ch, crop_size, patch_size,
     atlas, dseg_data, dseg_masked, target_mask,
     darr, output_dir, sub_id, dataset_name, patch_idx,
+    stain_name="Abeta",
+    spimquant_micr=None,
 ):
-    """Generate QC figure + save 128³ crop as nii.gz and ome.zarr."""
+    """Generate QC figure + save 128³ crop + seg mask as nii.gz."""
     cz, cy, cx = int(round(center_vox[0])), int(round(center_vox[1])), int(round(center_vox[2]))
 
     # Dseg voxel coords for atlas overlay
@@ -144,28 +255,36 @@ def generate_qc_and_crop(
     px0 = max(0, cx - half_p)
     px1 = min(darr.shape[3], cx + half_p)
 
+    # --- Extract seg mask if available ---
+    seg_crop = None
+    seg_path = None
+    if spimquant_micr is not None:
+        ff_path = find_fieldfrac(Path(spimquant_micr), stain_name)
+        if ff_path is not None:
+            seg_crop = extract_seg_crop(
+                ff_path, center_phys, inv_affine, dseg_data.shape, crop_size,
+            )
+
     # --- Save crop as NIfTI ---
     prefix = f"{sub_id}_patch{patch_idx:02d}"
     out_dir = output_dir / dataset_name / sub_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
     nii_path = out_dir / f"{prefix}_crop{crop_size}.nii.gz"
-    # 4µm isotropic affine
     affine_4um = np.diag([0.004, 0.004, 0.004, 1.0])
     nii_img = nib.Nifti1Image(crop, affine_4um)
     nib.save(nii_img, str(nii_path))
 
-    # --- Save crop as OME-Zarr ---
-    zarr_out_path = out_dir / f"{prefix}_crop{crop_size}.ome.zarr"
-    crop_zn = ZarrNii.from_darr(
-        crop[np.newaxis],  # add channel dim (1, Z, Y, X)
-        spacing=[0.004, 0.004, 0.004],  # 4µm isotropic in mm (z, y, x)
-    )
-    crop_zn.to_ome_zarr(str(zarr_out_path), max_layer=0)
+    # Save seg mask if available
+    if seg_crop is not None:
+        seg_path = out_dir / f"{prefix}_seg{crop_size}.nii.gz"
+        seg_img = nib.Nifti1Image(seg_crop, affine_4um)
+        nib.save(seg_img, str(seg_path))
 
     # --- QC Figure ---
+    has_seg = seg_crop is not None
     atlas_pads = [None, 60, 30, 15]
-    fig, axes = plt.subplots(5, 4, figsize=(26, 32))
+    fig, axes = plt.subplots(6 if has_seg else 5, 4, figsize=(26, 38 if has_seg else 32))
 
     # Row 0-2: Atlas 3 ortho × 4 zooms
     for row, (slice_data, slice_mask, dot_x, dot_y, dim_label, dim_val) in enumerate([
@@ -195,7 +314,6 @@ def generate_qc_and_crop(
         ax = axes[3, col]
         ax.imshow(slab, cmap="gray", vmin=crop_vmin, vmax=crop_vmax, origin="lower",
                   extent=[rx0, rx1, ry0, ry1])
-        # Show both patch box (red) and crop box (cyan)
         rect_p = Rectangle((px0, py0), px1-px0, py1-py0, lw=1.5, edgecolor="red", facecolor="none", ls="--")
         rect_c = Rectangle((cx0, cy0), cx1-cx0, cy1-cy0, lw=2, edgecolor="cyan", facecolor="none")
         ax.add_patch(rect_p)
@@ -220,12 +338,37 @@ def generate_qc_and_crop(
         if 0 <= sl < crop.shape[0]:
             ax.imshow(crop[sl], cmap="gray",
                       vmin=np.percentile(crop[sl], 0.5), vmax=np.percentile(crop[sl], 99.5))
-        ax.set_title(f"Crop z={sl}")
+            # Overlay seg at 30% opacity if available
+            if has_seg:
+                seg_slice = seg_crop[sl]
+                seg_overlay = np.ma.masked_where(seg_slice < 0.01, seg_slice)
+                ax.imshow(seg_overlay, cmap="hot", alpha=0.3, vmin=0, vmax=1)
+        ax.set_title(f"Crop z={sl}" + (" + seg" if has_seg else ""))
         ax.axis("off")
 
+    # Row 5 (if seg available): 3 crop slices with seg only + 1 overlay detail
+    if has_seg:
+        for i, offset in enumerate([-10, 0, 10]):
+            ax = axes[5, i]
+            sl = mid + offset
+            if 0 <= sl < crop.shape[0]:
+                ax.imshow(seg_crop[sl], cmap="hot", vmin=0, vmax=1)
+            ax.set_title(f"Seg z={sl} (fieldfrac)")
+            ax.axis("off")
+        # Last panel: overlay with stronger opacity
+        ax = axes[5, 3]
+        if 0 <= mid < crop.shape[0]:
+            ax.imshow(crop[mid], cmap="gray",
+                      vmin=np.percentile(crop[mid], 0.5), vmax=np.percentile(crop[mid], 99.5))
+            seg_overlay = np.ma.masked_where(seg_crop[mid] < 0.01, seg_crop[mid])
+            ax.imshow(seg_overlay, cmap="hot", alpha=0.5, vmin=0, vmax=1)
+        ax.set_title(f"Overlay z={mid} (50% opacity)")
+        ax.axis("off")
+
+    seg_status = "seg=YES" if has_seg else "seg=N/A"
     fig.suptitle(
         f"{dataset_name} / {sub_id} / patch {patch_idx} | vox ({cz},{cy},{cx}) | {label_str}\n"
-        f"128³ crop saved | red=256 context, cyan=128 crop",
+        f"128³ crop saved | red=256 context, cyan=128 crop | {seg_status}",
         fontsize=14,
     )
     plt.tight_layout()
@@ -233,7 +376,7 @@ def generate_qc_and_crop(
     fig.savefig(qc_path, dpi=100, bbox_inches="tight")
     plt.close(fig)
 
-    return nii_path, zarr_out_path, qc_path
+    return nii_path, seg_path, qc_path
 
 
 # ---------------------------------------------------------------------------
@@ -317,14 +460,19 @@ def build_for_stain(stain, dataset_roots, output_base):
             vox_fullres = fullres_inv @ np.array(center)
             center_vox = vox_fullres * res_scale
 
-            nii_path, zarr_path, qc_path = generate_qc_and_crop(
+            # spimquant micr dir (same dir as the dseg file)
+            spimquant_micr = str(Path(subj["dseg_path"]).parent)
+
+            nii_path, seg_path, qc_path = generate_qc_and_crop(
                 subj, list(center), list(center_vox), stain_ch,
                 CROP_SIZE, PATCH_SIZE,
                 atlas, dseg_data, dseg_masked, target_mask,
                 darr, output_dir, sub_id, dataset_name, local_patch_idx,
+                stain_name=stain,
+                spimquant_micr=spimquant_micr,
             )
 
-            manifest_entries.append({
+            entry = {
                 "subject_id": sub_id,
                 "dataset": dataset_name,
                 "region_group": group_name,
@@ -332,9 +480,11 @@ def build_for_stain(stain, dataset_roots, output_base):
                 "center_vox": [float(v) for v in center_vox],
                 "stain_channel": stain_ch,
                 "nii_path": str(nii_path),
-                "zarr_path": str(zarr_path),
                 "qc_path": str(qc_path),
-            })
+            }
+            if seg_path is not None:
+                entry["seg_path"] = str(seg_path)
+            manifest_entries.append(entry)
 
             patch_count += 1
             local_patch_idx += 1
