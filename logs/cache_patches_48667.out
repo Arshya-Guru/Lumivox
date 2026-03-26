@@ -1,0 +1,52 @@
+
+=== Caching Iba1 patches ===
+Start: Wed Mar 25 06:50:27 AM EDT 2026
+✨ Pixi task (python in default): python scripts/cache_patches.py --manifest manifests/iba1_50k_ki3.json --output-dir /nfs/scratch/apooladi/iba1
+50000 patches, 28 volumes, 0 already cached
+[1/28] micr — 1785 patches, opening zarr...
+  micr: 100/1785 | total saved=100/50000 (199s)
+  micr: 200/1785 | total saved=200/50000 (321s)
+  micr: 300/1785 | total saved=300/50000 (465s)
+  micr: 400/1785 | total saved=400/50000 (652s)
+  micr: 500/1785 | total saved=500/50000 (818s)
+  micr: 600/1785 | total saved=600/50000 (961s)
+  micr: 700/1785 | total saved=700/50000 (1076s)
+  micr: 800/1785 | total saved=800/50000 (1187s)
+  micr: 900/1785 | total saved=900/50000 (1316s)
+  micr: 1000/1785 | total saved=1000/50000 (1434s)
+  micr: 1100/1785 | total saved=1100/50000 (1550s)
+  micr: 1200/1785 | total saved=1200/50000 (1679s)
+  micr: 1300/1785 | total saved=1300/50000 (1786s)
+  micr: 1400/1785 | total saved=1400/50000 (1891s)
+  micr: 1500/1785 | total saved=1500/50000 (1992s)
+  micr: 1600/1785 | total saved=1600/50000 (2095s)
+  micr: 1700/1785 | total saved=1700/50000 (2198s)
+  done — saved=1785 skipped=0 failed=0
+[2/28] micr — 1786 patches, opening zarr...
+  micr: 15/1786 | total saved=1800/50000 (2314s)
+  micr: 115/1786 | total saved=1900/50000 (2445s)
+  micr: 215/1786 | total saved=2000/50000 (2565s)
+  micr: 315/1786 | total saved=2100/50000 (2682s)
+  micr: 415/1786 | total saved=2200/50000 (2790s)
+  micr: 515/1786 | total saved=2300/50000 (2899s)
+  micr: 615/1786 | total saved=2400/50000 (3008s)
+  micr: 715/1786 | total saved=2500/50000 (3109s)
+  micr: 815/1786 | total saved=2600/50000 (3217s)
+  micr: 915/1786 | total saved=2700/50000 (3317s)
+  micr: 1015/1786 | total saved=2800/50000 (3433s)
+  micr: 1115/1786 | total saved=2900/50000 (3542s)
+  micr: 1215/1786 | total saved=3000/50000 (3655s)
+  micr: 1315/1786 | total saved=3100/50000 (3766s)
+  micr: 1415/1786 | total saved=3200/50000 (3871s)
+  micr: 1515/1786 | total saved=3300/50000 (3979s)
+  micr: 1615/1786 | total saved=3400/50000 (4094s)
+  micr: 1715/1786 | total saved=3500/50000 (4203s)
+  done — saved=3571 skipped=0 failed=0
+[3/28] micr — 1784 patches, opening zarr...
+  micr: 29/1784 | total saved=3600/50000 (4318s)
+  micr: 129/1784 | total saved=3700/50000 (4439s)
+  micr: 229/1784 | total saved=3800/50000 (4550s)
+  micr: 329/1784 | total saved=3900/50000 (4666s)
+  micr: 429/1784 | total saved=4000/50000 (4781s)
+  micr: 529/1784 | total saved=4100/50000 (4893s)
+slurmstepd-rri-cbs-v3.schulich.uwo.ca: error: *** JOB 48667 ON rri-cbs-v3.schulich.uwo.ca CANCELLED AT 2026-03-25T08:17:08 ***

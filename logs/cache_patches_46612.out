@@ -1,0 +1,14 @@
+=== Caching Abeta patches ===
+Start: Tue Mar 24 03:12:15 PM EDT 2026
+✨ Pixi task (python in default): python scripts/cache_patches.py --manifest manifests/abeta_50k_alldata.json --output-dir /nfs/scratch/apooladi/training_patches/abeta --workers 8
+usage: cache_patches.py [-h] --manifest MANIFEST --output-dir OUTPUT_DIR
+cache_patches.py: error: unrecognized arguments: --workers 8
+
+=== Caching Iba1 patches ===
+Start: Tue Mar 24 03:14:24 PM EDT 2026
+✨ Pixi task (python in default): python scripts/cache_patches.py --manifest manifests/iba1_50k_ki3.json --output-dir /nfs/scratch/apooladi/training_patches/iba1 --workers 8
+usage: cache_patches.py [-h] --manifest MANIFEST --output-dir OUTPUT_DIR
+cache_patches.py: error: unrecognized arguments: --workers 8
+
+=== Done ===
+End: Tue Mar 24 03:16:14 PM EDT 2026

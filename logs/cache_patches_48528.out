@@ -1,0 +1,5 @@
+/var/spool/slurmd/job48528/slurm_script: line 10: /usr/bin/rm: Argument list too long
+=== Caching Abeta patches ===
+Start: Wed Mar 25 06:29:53 AM EDT 2026
+✨ Pixi task (python in default): python scripts/cache_patches.py --manifest manifests/abeta_50k_alldata.json --output-dir /nfs/scratch/apooladi/training_patches/abeta
+slurmstepd-rri-cbs-v3.schulich.uwo.ca: error: *** JOB 48528 ON rri-cbs-v3.schulich.uwo.ca CANCELLED AT 2026-03-25T06:30:38 ***

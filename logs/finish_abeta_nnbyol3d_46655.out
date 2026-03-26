@@ -1,0 +1,46 @@
+======================================
+Finish Abeta nnBYOL3D v2 — Job 46655
+Node: rri-cbs-h6
+Resuming from: ./checkpoints/nnbyol3d_abeta_50k_v2/pretrain_epoch0040.pt
+Start: Tue Mar 24 04:11:11 PM EDT 2026
+======================================
+Loaded weights from ./checkpoints/nnbyol3d_abeta_50k_v2/pretrain_epoch0040.pt (epoch 40, step 31280)
+  Schedule total: 39090 steps (offset=31280 + new=7810)
+  LR and EMA schedules continue from step 31280/39090
+  LR scheduler fast-forwarded by 31280 steps
+┏━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name   ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ online │ OnlineNetwork │ 94.8 M │ train │     0 │
+│ 1 │ target │ TargetNetwork │ 92.7 M │ train │     0 │
+└───┴────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 94.8 M                                                        
+Non-trainable params: 92.7 M                                                    
+Total params: 187 M                                                             
+Total estimated model params size (MB): 749                                     
+Modules in train mode: 688                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+OMEZarrPatchDataset: 50000 patches, stain=Abeta, method=nnbyol3d, patch_size=256, crop_size=128, localscratch=/localscratch/lumivox_patches (0 already cached)
+Loaded weights from ./checkpoints/nnbyol3d_abeta_50k_v2/pretrain_epoch0040.pt (epoch 40, step 31280)
+  Schedule total: 39090 steps (offset=31280 + new=7810)
+  LR and EMA schedules continue from step 31280/39090
+  LR scheduler fast-forwarded by 31280 steps
+OMEZarrPatchDataset: 50000 patches, stain=Abeta, method=nnbyol3d, patch_size=256, crop_size=128, localscratch=/localscratch/lumivox_patches (0 already cached)
+OMEZarrPatchDataset: all 50000 patches cached on localscratch, zarr handles freed
+  Saved training plot: checkpoints/nnbyol3d_abeta_50k_v2/training_progress_epoch0001.png
+  Saved checkpoint: checkpoints/nnbyol3d_abeta_50k_v2/pretrain_epoch0005.pt
+  Saved training plot: checkpoints/nnbyol3d_abeta_50k_v2/training_progress_epoch0005.png
+  Saved checkpoint: checkpoints/nnbyol3d_abeta_50k_v2/pretrain_epoch0010.pt
+  Saved training plot: checkpoints/nnbyol3d_abeta_50k_v2/training_progress_epoch0010.png
+  Saved checkpoint: checkpoints/nnbyol3d_abeta_50k_v2/pretrain_final.pt
+  Saved training plot: checkpoints/nnbyol3d_abeta_50k_v2/training_progress_final.png
+Epoch 9/9  ━━━━━━━━━━━━━━━╸ 3088/3125 1:22:40 •       0.75it/s v_num: 2.000     
+                                      0:00:50                  train/loss: 0.003
+                                                               train/tau: 1.000 
+                                                               train/lr: 0.000  
+======================================
+End: Wed Mar 25 09:40:37 AM EDT 2026
+======================================
+Training COMPLETE. pretrain_final.pt saved.
+Use ./checkpoints/nnbyol3d_abeta_50k_v2/pretrain_final.pt for fine-tuning.

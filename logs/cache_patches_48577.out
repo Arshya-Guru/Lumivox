@@ -1,0 +1,4 @@
+=== Caching Abeta patches ===
+Start: Wed Mar 25 06:39:09 AM EDT 2026
+✨ Pixi task (python in default): python scripts/cache_patches.py --manifest manifests/abeta_50k_alldata.json --output-dir /nfs/scratch/apooladi/training_patches/abeta
+slurmstepd-rri-cbs-v3.schulich.uwo.ca: error: *** JOB 48577 ON rri-cbs-v3.schulich.uwo.ca CANCELLED AT 2026-03-25T06:42:32 ***

@@ -1,6 +1,6 @@
 #!/bin/bash
-# Resume Iba1 SimCLR — 2x L40S, properly continues LR schedule
-# srun --gres=gpu:l40s:2 --cpus-per-task=48 --mem=256G --time=48:00:00 --pty bash
+# Resume Iba1 SimCLR — 2x L40S, continues from latest checkpoint
+# srun --gres=gpu:l40s:2 --cpus-per-task=48 --mem=256G --tmp=4000000 --time=48:00:00 --pty bash
 
 cd /nfs/khan/trainees/apooladi/abeta/Lumivox
 
@@ -13,7 +13,7 @@ pixi run python -m lumivox.training.pretrain_lightning \
     --manifest manifests/iba1_50k_ki3.json \
     --batch-size 8 \
     --crop-size 128 \
-    --epochs 50 \
+    --epochs 20 \
     --lr 1e-3 \
     --weight-decay 1e-4 \
     --warmup-epochs 3 \

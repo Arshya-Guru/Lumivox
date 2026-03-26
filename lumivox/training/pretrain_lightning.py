@@ -218,17 +218,18 @@ class PretrainLightningModule(pl.LightningModule):
 class CheckpointCallback(Callback):
     """Save checkpoints compatible with the Lumivox format."""
 
-    def __init__(self, save_dir: str, save_every_epochs: int = 50):
+    def __init__(self, save_dir: str, save_every_epochs: int = 50, epoch_offset: int = 0):
         self.save_dir = Path(save_dir)
         self.save_dir.mkdir(parents=True, exist_ok=True)
         self.save_every_epochs = save_every_epochs
+        self.epoch_offset = epoch_offset
 
     def _save(self, trainer, pl_module, path: Path):
         method = pl_module.method
         ckpt = {
             "model_type": method,
-            "epoch": trainer.current_epoch + 1,
-            "global_step": trainer.global_step,
+            "epoch": trainer.current_epoch + 1 + self.epoch_offset,
+            "global_step": trainer.global_step + pl_module.step_offset,
             "config": pl_module.cfg,
         }
 
@@ -263,8 +264,9 @@ class CheckpointCallback(Callback):
 
     def on_train_epoch_end(self, trainer, pl_module):
         epoch = trainer.current_epoch + 1
+        real_epoch = epoch + self.epoch_offset
         if epoch % self.save_every_epochs == 0 or epoch == trainer.max_epochs:
-            path = self.save_dir / f"pretrain_epoch{epoch:04d}.pt"
+            path = self.save_dir / f"pretrain_epoch{real_epoch:04d}.pt"
             self._save(trainer, pl_module, path)
 
     def on_train_end(self, trainer, pl_module):
@@ -275,9 +277,10 @@ class CheckpointCallback(Callback):
 class TrainingPlotCallback(Callback):
     """Generate training progress figures from logged metrics."""
 
-    def __init__(self, save_dir: str, plot_every_epochs: int = 5):
+    def __init__(self, save_dir: str, plot_every_epochs: int = 5, epoch_offset: int = 0):
         self.save_dir = Path(save_dir)
         self.plot_every = plot_every_epochs
+        self.epoch_offset = epoch_offset
         self.epoch_losses = []
         self.epoch_lrs = []
         self.epoch_accs = []  # SimCLR only
@@ -306,12 +309,13 @@ class TrainingPlotCallback(Callback):
             self.epoch_taus.append(tau.item() if hasattr(tau, "item") else float(tau))
 
         epoch = trainer.current_epoch + 1
+        real_epoch = epoch + self.epoch_offset
         if trainer.is_global_zero and (epoch % self.plot_every == 0 or epoch == 1):
-            self._make_plots(pl_module.method, epoch)
+            self._make_plots(pl_module.method, real_epoch)
 
     def on_train_end(self, trainer, pl_module):
         if trainer.is_global_zero:
-            self._make_plots(pl_module.method, trainer.current_epoch + 1, final=True)
+            self._make_plots(pl_module.method, trainer.current_epoch + 1 + self.epoch_offset, final=True)
 
     def _make_plots(self, method, epoch, final=False):
         import matplotlib
@@ -423,6 +427,8 @@ def main():
                         help="Path to Lightning checkpoint to resume from (last.ckpt)")
     parser.add_argument("--resume-weights", type=str, default=None,
                         help="Path to Lumivox .pt checkpoint to load weights from (2-GPU compatible)")
+    parser.add_argument("--epoch-offset", type=int, default=0,
+                        help="Offset for checkpoint/plot epoch numbering (set to resume epoch)")
     args = parser.parse_args()
 
     # Compute steps
@@ -481,6 +487,9 @@ def main():
 
     model = PretrainLightningModule(cfg)
 
+    # Epoch offset for checkpoint/plot numbering (auto-set from checkpoint if resuming)
+    epoch_offset = args.epoch_offset
+
     # Load weights from Lumivox .pt checkpoint (not Lightning .ckpt)
     if args.resume_weights is not None:
         ckpt = torch.load(args.resume_weights, map_location="cpu", weights_only=False)
@@ -508,9 +517,14 @@ def main():
         # Also update max_steps for the Trainer
         max_steps = args.epochs * steps_per_epoch  # Trainer only runs the new epochs
 
+        # Auto-set epoch offset if not explicitly provided
+        if args.epoch_offset == 0:
+            epoch_offset = resume_epoch
+
         print(f"Loaded weights from {args.resume_weights} (epoch {resume_epoch}, step {resume_step})")
         print(f"  Schedule total: {total_max_steps} steps (offset={resume_step} + new={max_steps})")
         print(f"  LR and EMA schedules continue from step {resume_step}/{total_max_steps}")
+        print(f"  Epoch numbering offset: {epoch_offset} (next save = epoch {epoch_offset + args.save_every})")
 
     try:
         from lightning.pytorch.callbacks import ModelCheckpoint
@@ -518,8 +532,8 @@ def main():
         from pytorch_lightning.callbacks import ModelCheckpoint
 
     callbacks = [
-        CheckpointCallback(save_dir=args.save_dir, save_every_epochs=args.save_every),
-        TrainingPlotCallback(save_dir=args.save_dir, plot_every_epochs=args.save_every),
+        CheckpointCallback(save_dir=args.save_dir, save_every_epochs=args.save_every, epoch_offset=epoch_offset),
+        TrainingPlotCallback(save_dir=args.save_dir, plot_every_epochs=args.save_every, epoch_offset=epoch_offset),
         # Lightning-native checkpoint for resume (saves full training state)
         ModelCheckpoint(
             dirpath=args.save_dir,

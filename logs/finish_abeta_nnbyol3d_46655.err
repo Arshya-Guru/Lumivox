@@ -1,0 +1,29 @@
+✨ Pixi task (python in default): python -m lumivox.training.pretrain_lightning --method nnbyol3d --manifest manifests/abeta_50k_alldata.json --batch-size 8 --crop-size 128 --epochs 10 --lr 5e-4 --weight-decay 1e-4 --warmup-epochs 8 --base-ema 0.996 --accumulate-grad-batches 4 --num-workers 16 --precision bf16-mixed --devices 2 --save-dir ./checkpoints/nnbyol3d_abeta_50k_v2 --save-every 5 --seed 42 --resume-weights ./checkpoints/nnbyol3d_abeta_50k_v2/pretrain_epoch0040.pt
+Matplotlib is building the font cache; this may take a moment.
+[rank: 0] Seed set to 42
+/nfs/khan/trainees/apooladi/abeta/Lumivox/.pixi/envs/default/lib/python3.12/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python /nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/tr ...
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+[W324 16:14:48.080891375 socket.cpp:764] [c10d] The client socket cannot be initialized to connect to [localhost]:44273 (errno: 97 - Address family not supported by protocol).
+[rank: 1] Seed set to 42
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/2
+[W324 16:15:51.104889468 socket.cpp:764] [c10d] The client socket cannot be initialized to connect to [localhost]:44273 (errno: 97 - Address family not supported by protocol).
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+/nfs/khan/trainees/apooladi/abeta/Lumivox/.pixi/envs/default/lib/python3.12/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /nfs/khan/trainees/apooladi/abeta/Lumivox/checkpoints/nnbyol3d_abeta_50k_v2 exists and is not empty.
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/training/pretrain_lightning.py:172: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+/nfs/khan/trainees/apooladi/abeta/Lumivox/lumivox/training/pretrain_lightning.py:172: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+/nfs/khan/trainees/apooladi/abeta/Lumivox/.pixi/envs/default/lib/python3.12/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+/nfs/khan/trainees/apooladi/abeta/Lumivox/.pixi/envs/default/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/nfs/khan/trainees/apooladi/abeta/Lumivox/.pixi/envs/default/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+[rank1]:[W324 16:20:08.215665696 reducer.cpp:1500] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank0]:[W324 16:20:08.215824586 reducer.cpp:1500] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+`Trainer.fit` stopped: `max_steps=7810` reached.
