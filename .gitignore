@@ -12,6 +12,6 @@ __pycache__/
 core
 lightning_logs
 qc_images*
-ft
+ft*
 old_ft
 checkpoints/
