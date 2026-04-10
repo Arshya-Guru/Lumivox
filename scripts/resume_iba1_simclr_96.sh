@@ -1,28 +1,26 @@
 #!/bin/bash
-# Resume Iba1 nnBYOL3D — 2x L40S, properly continues LR + EMA schedule
+# Resume Iba1 SimCLR 96³ — auto-detects latest checkpoint
 # srun --gres=gpu:l40s:2 --cpus-per-task=48 --mem=256G --tmp=4000000 --time=48:00:00 --pty bash
 
 cd /nfs/khan/trainees/apooladi/abeta/Lumivox
 
-SAVE_DIR="./checkpoints/nnbyol3d_iba1_50k"
+SAVE_DIR="./checkpoints/simclr_iba1_50k_96"
 CKPT=$(ls -t ${SAVE_DIR}/pretrain_epoch*.pt 2>/dev/null | head -1)
-if [ -z "$CKPT" ]; then echo "No checkpoint found!"; exit 1; fi
+if [ -z "$CKPT" ]; then echo "No checkpoint found in $SAVE_DIR!"; exit 1; fi
 
 EPOCH=$(python3 -c "import torch; print(torch.load('$CKPT', map_location='cpu', weights_only=False)['epoch'])")
 REMAINING=$((50 - EPOCH))
 echo "Resuming from: $CKPT (epoch $EPOCH, $REMAINING epochs remaining)"
 
 pixi run python -m lumivox.training.pretrain_lightning \
-    --method nnbyol3d \
+    --method simclr \
     --manifest manifests/iba1_50k_ki3.json \
-    --batch-size 8 \
-    --crop-size 128 \
+    --batch-size 24 \
+    --crop-size 96 \
     --epochs ${REMAINING} \
-    --lr 5e-4 \
+    --lr 1e-3 \
     --weight-decay 1e-4 \
-    --warmup-epochs 8 \
-    --base-ema 0.996 \
-    --accumulate-grad-batches 4 \
+    --warmup-epochs 3 \
     --num-workers 16 \
     --precision bf16-mixed \
     --devices 2 \
