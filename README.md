@@ -39,7 +39,11 @@ python -m lumivox.training.pretrain --method simclr --manifest manifests/abeta_c
 pixi run python scripts/build_finetune_normalized.py
 pixi run python scripts/finalize_finetune_gold.py init --use otsu2
 pixi run python scripts/generate_view_scripts.py
+pixi run python scripts/generate_roi_qc.py                    # atlas-context QC figures
+pixi run python scripts/extract_spimquant_patch.py --patch sub-XXX_patchNN \
+        --spimquant-mask /path/to/mask.ozx --downsample max    # reference masks for review
 # ...napari pass to drop boundary artifacts (see Fine-tune Ground Truth section)
+pixi run python scripts/audit_gold_patches.py                 # flag over-segmented golds
 pixi run python scripts/finalize_finetune_gold.py manifest
 
 # Fine-tuning
@@ -227,6 +231,79 @@ bash ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/view_sub-AS40F2_p
 
 The top-level `view_index.txt` lists every patch with dataset, region, and component counts (k2, k3) so you can scan it and prioritise the high-count patches where the k=2 vs k=3 decision matters most.
 
+The scripts auto-load any `*_spimquant_mask*.nii.gz` next to the patch (see the SPIMquant reference masks section below) as an additional hidden layer, so you can toggle SPIMquant's independent segmentation on top of your gold mask during the review pass.
+
+### Atlas-context QC figures: `scripts/generate_roi_qc.py`
+
+The per-patch `*_qc.png` emitted by `build_finetune_normalized.py` is minimal (raw + normalized + the two Otsu candidates). The `generate_roi_qc.py` script adds a heavier 4×3 figure showing **where in the brain the patch lives** on top of the Otsu overlays — useful for the review pass and for writing up what anatomy each patch covers.
+
+```bash
+pixi run python scripts/generate_roi_qc.py             # all patches
+pixi run python scripts/generate_roi_qc.py --force      # overwrite existing
+pixi run python scripts/generate_roi_qc.py --dataset mouse_app_lecanemab_batch2
+pixi run python scripts/generate_roi_qc.py --patch sub-AS40F2_patch01
+```
+
+Layout (saved as `*_roi_qc.png` alongside the existing `*_qc.png`):
+- **Row 0** — atlas ortho slices (axial / coronal / sagittal) zoomed on the patch center with cortex/hippocampus/striatum/cerebellum region contours and a red center marker
+- **Row 1** — raw 128³ crop slices (mid-10, mid, mid+10)
+- **Row 2** — raw + otsu k=2 mask overlay
+- **Row 3** — raw + otsu k=3 mask overlay
+
+The dseg is loaded once per subject and shared across that subject's patches, so the full sweep across all 46+ patches takes a couple of minutes.
+
+### SPIMquant reference masks
+
+SPIMquant (the upstream pipeline that produced the atlas segmentations) also emits its own Abeta mask at the full resolution. Loading this as an extra reference layer during the napari review pass gives you an independent second opinion on where plaques sit — particularly useful for flagging over-segmented Lumivox outputs (e.g., heavy-tail hippocampal patches where our Otsu threshold landed in the bulk rather than the tail).
+
+There are two formats across batches:
+
+| Format | Batches with coverage | How to extract |
+|---|---|---|
+| Single-file `.ozx` (zip-packed OME-Zarr, full volume) | lec2, lec3, ki3_batch3 (`spimquant-v0.7.0rc3-dd73d28`), vaccine | `extract_spimquant_patch.py` |
+| Per-region `.patches/` directories of 256³ NIfTI tiles | ki3_batch1, ki3_batch2 | `extract_spimquant_ki3.py` |
+
+#### `extract_spimquant_patch.py` (`.ozx` single-volume masks)
+
+```bash
+# Default downsample is nearest-neighbor (matches original spec). Use max-pool
+# for sparse patches where NN would drop all the tiny positive voxels.
+pixi run python scripts/extract_spimquant_patch.py \
+        --patch sub-AS114M3_patch00 \
+        --spimquant-mask /nfs/trident3/lightsheet/prado/mouse_app_lecanemab_batch2/derivatives/spimquant-v0.6.0rc2_84a605e_ozx/sub-AS114M3/micr/sub-AS114M3_sample-brain_acq-imaris4x_stain-Abeta_level-0_desc-otsu+k3i2_mask.ozx \
+        --downsample max
+# -> sub-AS114M3_patch00_spimquant_mask_maxpool.nii.gz
+```
+
+Workflow:
+1. Read `ft_normalized/Abeta/manifest.json` (or any per-patch meta.json) to get `center_vox` in resampled-4 µm voxel space.
+2. Read the subject's `*_res-4um_SPIM.ome.zarr.json` sidecar for the full-res↔resampled scale factors.
+3. Convert `center_vox / scale` → full-res voxel coordinates.
+4. Open the `.ozx` via `ZarrNii.from_ome_zarr` (it's just a zip-packed OME-Zarr; ZarrNii handles it transparently).
+5. Carve a box in full-res voxel space whose **physical extent matches 128 × 4 µm** (anisotropic in full-res voxels since scale differs per axis).
+6. Downsample (NN or max-pool) to 128³ and save with the same NIfTI affine as the patch's `crop128.nii.gz`.
+
+#### `extract_spimquant_ki3.py` (`.patches` tiled masks)
+
+KI3 batch1 and batch2 don't have full-volume masks — SPIMquant stored 110 sparse 256³ NIfTI tiles per subject in per-region `.patches/` directories. The script assembles any tiles that overlap the patch's physical bounding box. Coverage is sparse by construction (the tiles are scattered samples from atlas regions, not a contiguous mosaic), so most ki3-b1/b2 patches yield empty output — document this expectation up front.
+
+```bash
+pixi run python scripts/extract_spimquant_ki3.py              # all ki3 patches
+pixi run python scripts/extract_spimquant_ki3.py --batch ki3_batch1
+pixi run python scripts/extract_spimquant_ki3.py --patch sub-AS134F3_patch00
+```
+
+For KI3 batch3 you should prefer the newer `spimquant-v0.7.0rc3-dd73d28` version which does produce full `.ozx` files — use `extract_spimquant_patch.py` for those.
+
+#### Shared ground-truth location (`$GT`)
+
+Reviewed gold patches are also mirrored at `$GT/Abeta/{dataset}/{subject}/...` (typically `/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized`) so collaborators can reach them without navigating into the Lumivox worktree. When you extract a SPIMquant mask for a patch, copy it over as well:
+
+```bash
+cp ft_normalized/Abeta/<batch>/<subject>/<patch_id>_spimquant_mask_maxpool.nii.gz \
+   $GT/Abeta/<batch>/<subject>/
+```
+
 ### Finalising the gold masks: `scripts/finalize_finetune_gold.py`
 
 After `build_finetune_normalized.py` produces the candidate masks, the human-review step turns them into gold via five subcommands:
@@ -257,6 +334,49 @@ pixi run python scripts/finalize_finetune_gold.py manifest
 ```
 
 Review state lives in `ft_normalized/Abeta/.review_state.json` so you can quit and resume the next day. The `status` table flags patches that used WT global fallback during normalization (look for the `*` column) — those are worth a second look since their stats came from the whole WT brain, not from the matched anatomical region.
+
+#### napari hotkeys
+
+When `finalize napari --patch ...` (or the per-patch `view_*.sh`) opens with the GOLD layer loaded, two shortcuts are bound in-process:
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl+S` | Save the GOLD layer back to `*_seg_gold.nii.gz` in place (no file dialog) |
+| `Ctrl+F` | Zero out every connected component in the active Labels layer that is strictly larger than `MAX_OBJECT_VOXELS` (default 5000). Prints a `removed N components (X voxels above threshold)` summary to the terminal. Applied in-place so you can visually verify before pressing Ctrl+S. |
+
+The `MAX_OBJECT_VOXELS` constant sits near the top of `finalize_finetune_gold.py` with a comment explaining the 4 µm isotropic math. Tissue-edge autofluorescence artifacts routinely blow past 10⁴ voxels, real plaques almost never exceed ~5000 voxels (~85 µm diameter sphere), so `Ctrl+F` is effectively a one-keystroke boundary-artifact eraser.
+
+### Auditing the gold masks: `scripts/audit_gold_patches.py`
+
+Before writing the final `manifest_gold.json`, run a diagnostic sweep to flag patches that are likely over-segmented. The audit is **read-only** — it never touches the gold files.
+
+```bash
+pixi run python scripts/audit_gold_patches.py
+# -> ft_normalized/Abeta/gold_audit.txt
+```
+
+For every `*_seg_gold.nii.gz` it computes:
+
+- **Distribution stats** on the normalized and raw 128³ crops (p90/p95/p99/p99.5/p99.9/max and the `max/p99` heavy-tail ratio)
+- **Gold mask stats** — total connected components (cc3d, 26-conn), total labeled voxels, volume fraction
+- **Per-component mean normalized value**, binned into:
+  - `neg (<0)` — dimmer than WT baseline (can't be real Abeta accumulation)
+  - `borderline (0..1)` — weakly brighter than WT
+  - `confident (>=1)` — clearly brighter
+- **Size distribution** across voxel-count bins `[<5, 5-10, 10-20, 20-50, 50-100, 100-300, 300-1000, 1000+]`
+- **Mean local-brightness ratio** — for each component, `mean(raw_in_component) / mean(uniform_filter₁₅(raw))`. Real plaques should be ≥1.10× brighter than their local 15-voxel neighborhood.
+
+Five flagging rules are then applied:
+
+| Flag | Trigger | Meaning |
+|---|---|---|
+| `HEAVY_TAIL_OVERSEG` | `norm max/p99 > 10` **and** gold fraction `> 2%` **and** `>30%` of components have `mean_norm < 1` | Threshold landed in the bulk of a heavy-tailed distribution. Few real outlier plaques, most components are noise. |
+| `SPARSE_EXPECTED` | heavy-tail `> 10` **and** gold fraction `> 1.5%` **and** batch is `mouse_app_vaccine_batch` | Vaccine cohort is biologically expected to be sparse; high gold fraction is suspicious. |
+| `NEG_NORM_COMPONENTS` | `>20%` of components have `mean_norm < 0` | Many components are dimmer than the WT reference — can't be Abeta. |
+| `TINY_DOMINATED` | `>50%` of components are `<10` voxels | Mostly noise speckle rather than real plaques. |
+| `LOW_CONFIDENCE` | mean local-brightness ratio `< 1.10` | Components not meaningfully above their local neighborhood. |
+
+The report sorts patches by flag count (most-suspect first) with a summary header containing per-flag counts and a top-10 list. Re-run after any napari edits to confirm the fix landed.
 
 ### Coordinate system caveats
 
@@ -294,7 +414,11 @@ scripts/
 ├── build_finetune_data.py         # Simple fine-tune patch builder (uses SPIMquant fieldfrac)
 ├── build_finetune_normalized.py   # WT-normalized fine-tune ground truth pipeline
 ├── finalize_finetune_gold.py      # Init / review / napari / manifest_gold workflow
+├── audit_gold_patches.py          # Read-only diagnostic sweep; flags over-segmented patches
 ├── generate_view_scripts.py       # Per-patch napari view_*.sh launchers
+├── generate_roi_qc.py             # Atlas-context QC figures (4×3 with region overlays)
+├── extract_spimquant_patch.py     # Pull SPIMquant .ozx reference mask into 128³ patch space
+├── extract_spimquant_ki3.py       # KI3 .patches tile-assembly variant of the above
 ├── cache_patches.py               # Batch extract patches to .npy on localscratch
 ├── generate_qc_images.py          # QC figures for any patch manifest
 └── *.sh                           # SLURM/launch scripts for pretraining + resume
@@ -306,15 +430,20 @@ ft_normalized/                      # Output of build_finetune_normalized.py + f
     ├── manifest_gold.json          # Final reviewed manifest (after finalize manifest)
     ├── .review_state.json          # Review progress, regenerated from finalize review
     ├── view_index.txt              # Index of per-patch view_*.sh launchers
+    ├── gold_audit.txt              # Output of audit_gold_patches.py
     ├── wt_references/              # Cached N4 bias fields per WT animal
     └── {dataset}/{subject}/
-        ├── *_crop128.nii.gz        # raw disease 128³ (training input)
-        ├── *_normalized128.nii.gz  # WT z-score normalized 128³
-        ├── *_seg_otsu2.nii.gz      # k=2 Otsu candidate
-        ├── *_seg_otsu3.nii.gz      # k=3 Otsu candidate
-        ├── *_seg_gold.nii.gz       # finalised gold mask (post review)
-        ├── *_qc.png                # 5×3 QC figure
-        ├── *_meta.json             # per-patch normalization metadata
-        └── view_*.sh               # napari launcher for this patch
+        ├── *_crop128.nii.gz                     # raw disease 128³ (training input)
+        ├── *_normalized128.nii.gz               # WT z-score normalized 128³
+        ├── *_seg_otsu2.nii.gz                   # k=2 Otsu candidate
+        ├── *_seg_otsu3.nii.gz                   # k=3 Otsu candidate
+        ├── *_seg_gold.nii.gz                    # finalised gold mask (post review)
+        ├── *_spimquant_mask[_maxpool].nii.gz    # SPIMquant reference mask (optional)
+        ├── *_qc.png                             # 5×3 QC figure (build-time)
+        ├── *_roi_qc.png                         # 4×3 atlas-context QC (generate_roi_qc.py)
+        ├── *_meta.json                          # per-patch normalization metadata
+        └── view_*.sh                            # napari launcher for this patch
+$GT/Abeta/{dataset}/{subject}/...   # Shared mirror of reviewed gold patches
+                                    # (typically /nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized)
 tests/               # Unit tests
 ```

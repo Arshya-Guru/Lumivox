@@ -68,6 +68,7 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional
 
+import cc3d
 import nibabel as nib
 import numpy as np
 
@@ -76,6 +77,27 @@ OUTPUT_ROOT = REPO_ROOT / "ft_normalized" / "Abeta"
 MANIFEST_PATH = OUTPUT_ROOT / "manifest.json"
 GOLD_MANIFEST_PATH = OUTPUT_ROOT / "manifest_gold.json"
 REVIEW_STATE_PATH = OUTPUT_ROOT / ".review_state.json"
+
+# Maximum voxel count for a single connected component to be kept by the
+# Ctrl+F filter in cmd_napari. Anything strictly larger than this is treated
+# as a tissue-boundary artifact and zeroed out from the active labels layer.
+#
+# At 4 um isotropic, 1 voxel = 64 um³, so:
+#   - 5000 voxels   = 320,000 um³ ≈ 85 um diameter sphere   (upper end of plaque)
+#   - 1000 voxels   =  64,000 um³ ≈ 50 um diameter sphere   (typical large plaque)
+#   - 100  voxels   =   6,400 um³ ≈ 23 um diameter sphere   (small plaque)
+# Tissue-edge / autofluorescence artifacts routinely span 10⁴–10⁵+ voxels.
+#
+# SPIMquant takes the opposite approach: a *minimum*-area filter (default
+# `min_area = 200` voxels in regionprop_filters) but typically operating at
+# native resolution ≈ 1.6 um isotropic. At our 4 um working resolution the
+# voxel volume is ~16x larger, so SPIMquant's 200-voxel min becomes ~12 voxels
+# at 4 um (we already use 15 in build_finetune_normalized.MIN_OBJECT_VOXELS).
+# SPIMquant doesn't impose an absolute *max*-voxel filter; it relies on a
+# `max_extent` ratio (nvoxels / bbox_volume ≤ 0.15) inside its segmentation
+# cleaner to catch sparse edge artifacts. Ctrl+F here is a coarser but more
+# interactive tool for napari review of tissue-boundary patches.
+MAX_OBJECT_VOXELS = 5000
 
 
 # ---------------------------------------------------------------------------
@@ -246,8 +268,70 @@ def cmd_napari(args: argparse.Namespace) -> None:
         viewer.status = f"saved gold mask -> {gold.name}"
         print(f"saved {gold}")
 
+    # Bind Ctrl+F to filter out connected components that are too large to be
+    # plausibly a plaque (typically tissue-boundary autofluorescence). Operates
+    # on the *currently selected* labels layer in-place — the user can hit
+    # Ctrl+S after to persist. Threshold is the module-level MAX_OBJECT_VOXELS.
+    @viewer.bind_key("Ctrl-F", overwrite=True)
+    def filter_large_components(_v):
+        layer = viewer.layers.selection.active
+        if layer is None or not isinstance(layer, napari.layers.Labels):
+            msg = "Ctrl+F: select a Labels layer first (click 'GOLD (edit me)')"
+            viewer.status = msg
+            print(msg)
+            return
+
+        data = np.asarray(layer.data)
+        binary = (data > 0).astype(np.uint8)
+        if binary.sum() == 0:
+            msg = f"Ctrl+F on '{layer.name}': layer is empty"
+            viewer.status = msg
+            print(msg)
+            return
+
+        labels_arr = cc3d.connected_components(binary, connectivity=26)
+        n_total = int(labels_arr.max())
+        if n_total == 0:
+            msg = f"Ctrl+F on '{layer.name}': no connected components"
+            viewer.status = msg
+            print(msg)
+            return
+
+        sizes = np.bincount(labels_arr.ravel())
+        sizes[0] = 0  # background
+        too_big_ids = np.where(sizes > MAX_OBJECT_VOXELS)[0]
+
+        if too_big_ids.size == 0:
+            msg = (
+                f"Ctrl+F on '{layer.name}': nothing removed "
+                f"(all {n_total} components ≤ {MAX_OBJECT_VOXELS} vox; "
+                f"largest = {int(sizes.max())})"
+            )
+            viewer.status = msg
+            print(msg)
+            return
+
+        removed_voxels = int(sizes[too_big_ids].sum())
+        keep_mask = ~np.isin(labels_arr, too_big_ids)
+        new_data = (binary * keep_mask).astype(data.dtype)
+
+        # Update in-place so the user sees the change immediately and can
+        # confirm before pressing Ctrl+S.
+        layer.data = new_data
+        layer.refresh()
+
+        msg = (
+            f"Ctrl+F on '{layer.name}': removed {int(too_big_ids.size)} components "
+            f"({removed_voxels} total voxels) above threshold {MAX_OBJECT_VOXELS}. "
+            f"Press Ctrl+S to save."
+        )
+        viewer.status = msg
+        print(msg)
+
     print("napari hotkeys:")
     print("  Ctrl+S       save the GOLD layer back to disk")
+    print(f"  Ctrl+F       remove connected components > {MAX_OBJECT_VOXELS} voxels from the active layer")
+    print("                (boundary-artifact filter, in-place — Ctrl+S to persist)")
     print("  e/p          eraser / paint brush on the labels layer")
     print("  q            close napari window")
     print()
