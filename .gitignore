@@ -15,3 +15,18 @@ qc_images*
 ft*
 old_ft
 checkpoints/
+
+# run outputs & scratch
+logs/
+qc/
+old/
+*.out
+*.err
+*.ckpt
+*.nii.gz
+*.seg.nrrd
+
+# large pretraining / patch manifests — keep only the small fine-tune manifests
+manifests/*
+!manifests/abeta_ft_v4_A.json
+!manifests/abeta_ft_first_pass.json

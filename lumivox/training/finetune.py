@@ -26,27 +26,47 @@ from lumivox.adaptation.checkpoint_export import extract_encoder_weights
 # Dropout wrapper for ResidualEncoderUNet
 # ---------------------------------------------------------------------------
 
-class DropoutUNetWrapper(nn.Module):
-    """Wraps ResidualEncoderUNet to apply Dropout3d on skip connections.
+class DecoderDropoutWrapper(nn.Module):
+    """Wraps ResidualEncoderUNet to apply Dropout3d *inside the decoder*.
 
-    Dropout is applied to encoder skip outputs before they enter the decoder,
-    regularizing the randomly-initialized decoder during fine-tuning.
+    A Dropout3d is applied to the output feature map of every decoder stage
+    (the StackedConvBlocks), so the randomly-initialised decoder is regularised
+    while the pretrained encoder is left completely untouched. Implemented with
+    forward hooks on ``decoder.stages`` so we don't have to reimplement the
+    decoder's (deep-supervision-aware) forward. The Dropout3d modules are
+    registered submodules, so they follow .train()/.eval() automatically —
+    i.e. standard dropout (active in training, off at inference), not MC dropout.
     """
 
     def __init__(self, model: nn.Module, dropout_p: float = 0.0):
         super().__init__()
         self.model = model
-        self.skip_dropout = nn.Dropout3d(p=dropout_p) if dropout_p > 0 else None
+        self.dropout_p = dropout_p
+        self.drops = nn.ModuleList()
+        self._handles = []
+        if dropout_p > 0:
+            stages = self.model.decoder.stages
+            self.drops = nn.ModuleList([nn.Dropout3d(p=dropout_p) for _ in stages])
+            for i, stage in enumerate(stages):
+                self._handles.append(
+                    stage.register_forward_hook(self._make_hook(i))
+                )
+
+    def _make_hook(self, idx: int):
+        def hook(_module, _inp, output):
+            return self.drops[idx](output)
+        return hook
 
     @property
     def encoder(self) -> nn.Module:
         return self.model.encoder
 
+    @property
+    def decoder(self) -> nn.Module:
+        return self.model.decoder
+
     def forward(self, x: torch.Tensor):
-        skips = self.model.encoder(x)
-        if self.skip_dropout is not None:
-            skips = [self.skip_dropout(s) for s in skips]
-        return self.model.decoder(skips)
+        return self.model(x)
 
 
 # ---------------------------------------------------------------------------
@@ -128,8 +148,8 @@ def build_segmentation_model(
             print(f"Loaded pretrained encoder weights ({model_type})")
 
         if dropout > 0:
-            model = DropoutUNetWrapper(model, dropout_p=dropout)
-            print(f"Decoder dropout enabled: p={dropout}")
+            model = DecoderDropoutWrapper(model, dropout_p=dropout)
+            print(f"Decoder dropout enabled (per-stage Dropout3d): p={dropout}")
 
         return model
 

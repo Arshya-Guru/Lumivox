@@ -429,6 +429,12 @@ def main():
                         help="Path to Lumivox .pt checkpoint to load weights from (2-GPU compatible)")
     parser.add_argument("--epoch-offset", type=int, default=0,
                         help="Offset for checkpoint/plot epoch numbering (set to resume epoch)")
+    parser.add_argument("--wandb", action="store_true",
+                        help="Enable Weights & Biases logging")
+    parser.add_argument("--wandb-project", type=str, default="lumivox",
+                        help="W&B project name (default: lumivox)")
+    parser.add_argument("--wandb-run-name", type=str, default=None,
+                        help="Optional run name override (defaults to <method>_<save_dir_basename>)")
     args = parser.parse_args()
 
     # Compute steps
@@ -560,7 +566,22 @@ def main():
     except ImportError:
         from pytorch_lightning.loggers import CSVLogger
 
-    logger = CSVLogger(save_dir=args.save_dir, name="lightning_logs")
+    loggers = [CSVLogger(save_dir=args.save_dir, name="lightning_logs")]
+
+    if args.wandb:
+        try:
+            from lightning.pytorch.loggers import WandbLogger
+        except ImportError:
+            from pytorch_lightning.loggers import WandbLogger
+        run_name = args.wandb_run_name or f"{args.method}_{Path(args.save_dir).name}"
+        wandb_logger = WandbLogger(
+            project=args.wandb_project,
+            name=run_name,
+            save_dir=args.save_dir,
+            config=vars(args),
+        )
+        wandb_logger.watch(model, log="all", log_freq=100)
+        loggers.append(wandb_logger)
 
     trainer = pl.Trainer(
         accelerator=accelerator,
@@ -570,7 +591,7 @@ def main():
         max_steps=max_steps,
         accumulate_grad_batches=accum,
         callbacks=callbacks,
-        logger=logger,
+        logger=loggers,
         enable_progress_bar=True,
         precision=args.precision,
         gradient_clip_val=1.0,
