@@ -47,6 +47,7 @@ SCRIPT_TEMPLATE = """#!/usr/bin/env bash
 #   normalized   : {norm_name}                (hidden by default)
 #   otsu2        : {o2_name}            (visible)
 #   otsu3        : {o3_name}            (hidden - toggle to compare)
+#   spimquant    : {spim_name}     (only if it exists; hidden by default)
 #   GOLD         : {gold_name}             (only if it exists)
 #
 # Toggle layer visibility in the napari left panel. Use `2`/`3` keyboard
@@ -66,6 +67,7 @@ RAW = "{raw_name}"
 NORM = "{norm_name}"
 O2 = "{o2_name}"
 O3 = "{o3_name}"
+SPIM = "{spim_name}"
 GOLD = "{gold_name}"
 
 raw_img = nib.load(RAW).get_fdata()
@@ -83,6 +85,10 @@ v.add_image(
 )
 v.add_labels(o2_img, name="otsu2", opacity=0.5)
 v.add_labels(o3_img, name="otsu3", opacity=0.5, visible=False)
+
+if os.path.exists(SPIM):
+    spim_img = nib.load(SPIM).get_fdata().astype(int)
+    v.add_labels(spim_img, name="spimquant (maxpool)", opacity=0.5, visible=False)
 
 if os.path.exists(GOLD):
     gold_img = nib.load(GOLD).get_fdata().astype(int)
@@ -141,6 +147,7 @@ def main():
         norm_name = f"{patch_id}_normalized128.nii.gz"
         o2_name = f"{patch_id}_seg_otsu2.nii.gz"
         o3_name = f"{patch_id}_seg_otsu3.nii.gz"
+        spim_name = f"{patch_id}_spimquant_mask_maxpool.nii.gz"
         gold_name = f"{patch_id}_seg_gold.nii.gz"
 
         script_path = patch_dir / f"view_{patch_id}.sh"
@@ -166,6 +173,7 @@ def main():
             norm_name=norm_name,
             o2_name=o2_name,
             o3_name=o3_name,
+            spim_name=spim_name,
             gold_name=gold_name,
         )
 

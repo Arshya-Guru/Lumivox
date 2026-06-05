@@ -1,0 +1,1765 @@
+{
+  "config": {
+    "description": "First-pass FT training set for Abeta segmentation. Hand-curated drops applied to the full 46-patch ft_normalized manifest at $GT.",
+    "source_manifest": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/manifest.json",
+    "gt_root": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized",
+    "stain": "Abeta",
+    "crop_size": 128,
+    "n_patches": 35,
+    "n_dropped": 11,
+    "dropped_patch_ids": [
+      "sub-AS134F1_patch01",
+      "sub-AS135M6_patch01",
+      "sub-AS164F3_patch00",
+      "sub-AS176F1_patch01",
+      "sub-AS204M1_patch00",
+      "sub-AS37F30_patch00",
+      "sub-AS38F40_patch00",
+      "sub-AS38F4_patch01",
+      "sub-AS40F2_patch00",
+      "sub-AS48F66_patch00",
+      "sub-AS9F7_patch01"
+    ],
+    "empty_mask_patch_ids": [
+      "sub-AS164F3_patch01"
+    ],
+    "inherited_config": {
+      "stain": "Abeta",
+      "patch_window": 256,
+      "crop_size": 128,
+      "gaussian_sigma": 0.7,
+      "min_object_voxels": 15,
+      "cc_connectivity": 26,
+      "n4_base_level_cap": 2,
+      "n4_extra_coarsen": 4,
+      "n4_iterations": [
+        30,
+        20
+      ],
+      "wt_subjects": {
+        "mouse_app_lecanemab_batch2": [
+          "sub-AS118M9"
+        ],
+        "mouse_app_lecanemab_batch3": [
+          "sub-AS161F3",
+          "sub-AS164F5",
+          "sub-AS168F1"
+        ],
+        "mouse_app_lecanemab_ki3_batch1": [
+          "sub-AS7F3"
+        ],
+        "mouse_app_lecanemab_ki3_batch2": [
+          "sub-AS7F1"
+        ],
+        "mouse_app_lecanemab_ki3_batch3": [
+          "sub-C57BL6"
+        ],
+        "mouse_app_vaccine_batch": []
+      },
+      "source_manifest": "ft/Abeta/manifest.json",
+      "n_patches_in": 50,
+      "n_excluded_wt": 4,
+      "n_disease_processed": 46,
+      "n_failed": 0,
+      "is_partial_run": false,
+      "this_run_processed": 46,
+      "this_run_failed": 0
+    }
+  },
+  "patches": [
+    {
+      "subject_id": "sub-AS114M3",
+      "dataset": "mouse_app_lecanemab_batch2",
+      "region_group": "hippocampus",
+      "center_phys": [
+        2.756000056862831,
+        7.540000155568123,
+        -1.5399999916553497
+      ],
+      "center_vox": [
+        139.99999924139544,
+        1885.0000388920305,
+        689.0000142157078
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9"
+      ],
+      "wt_per_ref_mu": [
+        336.4065856933594
+      ],
+      "wt_per_ref_sigma": [
+        52.61943817138672
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 336.4065856933594,
+      "sigma_wt": 52.61943817138672,
+      "n_components_otsu2": 274,
+      "n_components_otsu3": 558,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS114M3/sub-AS114M3_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS114M3/sub-AS114M3_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS114M3/sub-AS114M3_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS114M3/sub-AS114M3_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS114M3/sub-AS114M3_patch00_qc.png",
+      "patch_id": "sub-AS114M3_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS114M3/sub-AS114M3_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS36F4e",
+      "dataset": "mouse_app_lecanemab_batch2",
+      "region_group": "cortex",
+      "center_phys": [
+        7.5920001566410065,
+        7.540000155568123,
+        -1.5399999916553497
+      ],
+      "center_vox": [
+        384.9999979138375,
+        1885.0000388920305,
+        1898.0000391602514
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9"
+      ],
+      "wt_per_ref_mu": [
+        363.69268798828125
+      ],
+      "wt_per_ref_sigma": [
+        84.54669952392578
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 363.69268798828125,
+      "sigma_wt": 84.54669952392578,
+      "n_components_otsu2": 20,
+      "n_components_otsu3": 20,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS36F4e/sub-AS36F4e_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS36F4e/sub-AS36F4e_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS36F4e/sub-AS36F4e_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS36F4e/sub-AS36F4e_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS36F4e/sub-AS36F4e_patch00_qc.png",
+      "patch_id": "sub-AS36F4e_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS36F4e/sub-AS36F4e_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS40F2",
+      "dataset": "mouse_app_lecanemab_batch2",
+      "region_group": "cortex",
+      "center_phys": [
+        5.096000105142593,
+        8.632000178098679,
+        -0.5719999969005585
+      ],
+      "center_vox": [
+        142.99999922513965,
+        2158.0000445246696,
+        1274.0000262856483
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9"
+      ],
+      "wt_per_ref_mu": [
+        202.42552185058594
+      ],
+      "wt_per_ref_sigma": [
+        143.8063201904297
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 202.42552185058594,
+      "sigma_wt": 143.8063201904297,
+      "n_components_otsu2": 57,
+      "n_components_otsu3": 34,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/sub-AS40F2_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/sub-AS40F2_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/sub-AS40F2_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/sub-AS40F2_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/sub-AS40F2_patch01_qc.png",
+      "patch_id": "sub-AS40F2_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F2/sub-AS40F2_patch01_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS40F3",
+      "dataset": "mouse_app_lecanemab_batch2",
+      "region_group": "cortex",
+      "center_phys": [
+        3.328000068664551,
+        12.636000260710716,
+        -3.7399999797344208
+      ],
+      "center_vox": [
+        934.9999949336053,
+        3159.000065177679,
+        832.0000171661376
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9"
+      ],
+      "wt_per_ref_mu": [
+        271.30352783203125
+      ],
+      "wt_per_ref_sigma": [
+        218.0453643798828
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 271.30352783203125,
+      "sigma_wt": 218.0453643798828,
+      "n_components_otsu2": 54,
+      "n_components_otsu3": 27,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F3/sub-AS40F3_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F3/sub-AS40F3_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F3/sub-AS40F3_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F3/sub-AS40F3_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F3/sub-AS40F3_patch00_qc.png",
+      "patch_id": "sub-AS40F3_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch2/sub-AS40F3/sub-AS40F3_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS164F3",
+      "dataset": "mouse_app_lecanemab_batch3",
+      "region_group": "cortex",
+      "center_phys": [
+        2.236000046133995,
+        -8.424000173807144,
+        -2.4639999866485596
+      ],
+      "center_vox": [
+        615.9999966621399,
+        2106.000043451786,
+        559.0000115334987
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1"
+      ],
+      "wt_per_ref_mu": [
+        280.7156982421875,
+        208.34002685546875,
+        230.817138671875
+      ],
+      "wt_per_ref_sigma": [
+        418.7174072265625,
+        15.315797805786133,
+        66.7621078491211
+      ],
+      "wt_per_ref_n_valid": [
+        16777216,
+        16777216,
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 239.9576212565104,
+      "sigma_wt": 244.95987414365123,
+      "n_components_otsu2": 294,
+      "n_components_otsu3": 588,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS164F3/sub-AS164F3_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS164F3/sub-AS164F3_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS164F3/sub-AS164F3_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS164F3/sub-AS164F3_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS164F3/sub-AS164F3_patch01_qc.png",
+      "patch_id": "sub-AS164F3_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS164F3/sub-AS164F3_patch01_seg_gold_empty.nii.gz",
+      "gold_kind": "empty"
+    },
+    {
+      "subject_id": "sub-AS204M1",
+      "dataset": "mouse_app_lecanemab_batch3",
+      "region_group": "cortex",
+      "center_phys": [
+        10.81600022315979,
+        -9.204000189900398,
+        -2.7719999849796295
+      ],
+      "center_vox": [
+        692.9999962449075,
+        2301.0000474750996,
+        2704.0000557899475
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1"
+      ],
+      "wt_per_ref_mu": [
+        234.93324279785156,
+        181.81149291992188,
+        285.5561218261719
+      ],
+      "wt_per_ref_sigma": [
+        414.50445556640625,
+        183.54335021972656,
+        380.232666015625
+      ],
+      "wt_per_ref_n_valid": [
+        16777216,
+        16777216,
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 234.10028584798178,
+      "sigma_wt": 341.6035642864566,
+      "n_components_otsu2": 23,
+      "n_components_otsu3": 25,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS204M1/sub-AS204M1_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS204M1/sub-AS204M1_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS204M1/sub-AS204M1_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS204M1/sub-AS204M1_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS204M1/sub-AS204M1_patch01_qc.png",
+      "patch_id": "sub-AS204M1_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS204M1/sub-AS204M1_patch01_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS208F1",
+      "dataset": "mouse_app_lecanemab_batch3",
+      "region_group": "cortex",
+      "center_phys": [
+        2.8080000579357147,
+        -8.840000182390213,
+        -2.507999986410141
+      ],
+      "center_vox": [
+        626.9999966025354,
+        2210.0000455975533,
+        702.0000144839287
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1"
+      ],
+      "wt_per_ref_mu": [
+        314.6572265625,
+        245.6533203125,
+        224.197509765625
+      ],
+      "wt_per_ref_sigma": [
+        31.367769241333008,
+        32.96937561035156,
+        85.7695541381836
+      ],
+      "wt_per_ref_n_valid": [
+        16777216,
+        16777216,
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 261.502685546875,
+      "sigma_wt": 56.057509435628596,
+      "n_components_otsu2": 2,
+      "n_components_otsu3": 1,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F1/sub-AS208F1_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F1/sub-AS208F1_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F1/sub-AS208F1_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F1/sub-AS208F1_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F1/sub-AS208F1_patch00_qc.png",
+      "patch_id": "sub-AS208F1_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F1/sub-AS208F1_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS208F2",
+      "dataset": "mouse_app_lecanemab_batch3",
+      "region_group": "cortex",
+      "center_phys": [
+        5.096000105142593,
+        -7.020000144839287,
+        -0.9239999949932098
+      ],
+      "center_vox": [
+        230.9999987483025,
+        1755.0000362098217,
+        1274.0000262856483
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1"
+      ],
+      "wt_per_ref_mu": [
+        208.4676971435547,
+        234.38058471679688,
+        234.73046875
+      ],
+      "wt_per_ref_sigma": [
+        368.503173828125,
+        150.2918243408203,
+        340.0316467285156
+      ],
+      "wt_per_ref_n_valid": [
+        16777216,
+        16777216,
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 225.85958353678384,
+      "sigma_wt": 302.2161160284691,
+      "n_components_otsu2": 125,
+      "n_components_otsu3": 267,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F2/sub-AS208F2_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F2/sub-AS208F2_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F2/sub-AS208F2_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F2/sub-AS208F2_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F2/sub-AS208F2_patch00_qc.png",
+      "patch_id": "sub-AS208F2_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_batch3/sub-AS208F2/sub-AS208F2_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS134F1",
+      "dataset": "mouse_app_lecanemab_ki3_batch1",
+      "region_group": "cerebellum",
+      "center_phys": [
+        7.924799785017967,
+        -12.074399672448635,
+        -2.3799999468028545
+      ],
+      "center_vox": [
+        594.9999867007136,
+        3018.5999181121583,
+        1981.1999462544916
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3"
+      ],
+      "wt_per_ref_mu": [
+        301.2225341796875
+      ],
+      "wt_per_ref_sigma": [
+        63.33834457397461
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 301.2225341796875,
+      "sigma_wt": 63.33834457397461,
+      "n_components_otsu2": 70,
+      "n_components_otsu3": 23,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F1/sub-AS134F1_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F1/sub-AS134F1_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F1/sub-AS134F1_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F1/sub-AS134F1_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F1/sub-AS134F1_patch00_qc.png",
+      "patch_id": "sub-AS134F1_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F1/sub-AS134F1_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS134F3",
+      "dataset": "mouse_app_lecanemab_ki3_batch1",
+      "region_group": "hippocampus",
+      "center_phys": [
+        8.33039977401495,
+        -9.48479974269867,
+        -2.199999950826168
+      ],
+      "center_vox": [
+        549.999987706542,
+        2371.1999356746674,
+        2082.5999435037374
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3"
+      ],
+      "wt_per_ref_mu": [
+        275.1499328613281
+      ],
+      "wt_per_ref_sigma": [
+        43.465702056884766
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 275.1499328613281,
+      "sigma_wt": 43.465702056884766,
+      "n_components_otsu2": 149,
+      "n_components_otsu3": 24,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch00_qc.png",
+      "patch_id": "sub-AS134F3_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS134F3",
+      "dataset": "mouse_app_lecanemab_ki3_batch1",
+      "region_group": "cortex",
+      "center_phys": [
+        5.771999843418598,
+        -4.835999868810177,
+        -2.3799999468028545
+      ],
+      "center_vox": [
+        594.9999867007136,
+        1208.9999672025442,
+        1442.9999608546495
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3"
+      ],
+      "wt_per_ref_mu": [
+        241.19351196289062
+      ],
+      "wt_per_ref_sigma": [
+        45.90553665161133
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 241.19351196289062,
+      "sigma_wt": 45.90553665161133,
+      "n_components_otsu2": 613,
+      "n_components_otsu3": 260,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch01_qc.png",
+      "patch_id": "sub-AS134F3_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS134F3/sub-AS134F3_patch01_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS135M6",
+      "dataset": "mouse_app_lecanemab_ki3_batch1",
+      "region_group": "striatum",
+      "center_phys": [
+        7.280000150203705,
+        -6.552000135183334,
+        -2.4639999866485596
+      ],
+      "center_vox": [
+        615.9999966621399,
+        1638.0000337958336,
+        1820.0000375509262
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3"
+      ],
+      "wt_per_ref_mu": [
+        308.1180725097656
+      ],
+      "wt_per_ref_sigma": [
+        180.4983367919922
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 308.1180725097656,
+      "sigma_wt": 180.4983367919922,
+      "n_components_otsu2": 57,
+      "n_components_otsu3": 37,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch00_qc.png",
+      "patch_id": "sub-AS135M6_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS135M6",
+      "dataset": "mouse_app_lecanemab_ki3_batch1",
+      "region_group": "hippocampus",
+      "center_phys": [
+        8.840000182390213,
+        -10.97200022637844,
+        -2.851199984550476
+      ],
+      "center_vox": [
+        712.799996137619,
+        2743.0000565946098,
+        2210.0000455975533
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3"
+      ],
+      "wt_per_ref_mu": [
+        292.1102294921875
+      ],
+      "wt_per_ref_sigma": [
+        73.70571899414062
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 292.1102294921875,
+      "sigma_wt": 73.70571899414062,
+      "n_components_otsu2": 175,
+      "n_components_otsu3": 122,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch02_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch02_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch02_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch02_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch02_qc.png",
+      "patch_id": "sub-AS135M6_patch02",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M6/sub-AS135M6_patch02_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS135M8",
+      "dataset": "mouse_app_lecanemab_ki3_batch1",
+      "region_group": "striatum",
+      "center_phys": [
+        7.64400015771389,
+        -6.3960001319646835,
+        -3.132799983024597
+      ],
+      "center_vox": [
+        783.1999957561493,
+        1599.0000329911707,
+        1911.0000394284725
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3"
+      ],
+      "wt_per_ref_mu": [
+        327.73876953125
+      ],
+      "wt_per_ref_sigma": [
+        80.60986328125
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 327.73876953125,
+      "sigma_wt": 80.60986328125,
+      "n_components_otsu2": 200,
+      "n_components_otsu3": 94,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M8/sub-AS135M8_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M8/sub-AS135M8_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M8/sub-AS135M8_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M8/sub-AS135M8_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M8/sub-AS135M8_patch00_qc.png",
+      "patch_id": "sub-AS135M8_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch1/sub-AS135M8/sub-AS135M8_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS11F1e",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "hippocampus",
+      "center_phys": [
+        2.8600000590085983,
+        -9.932000204920769,
+        -4.7519999742507935
+      ],
+      "center_vox": [
+        1187.9999935626984,
+        2483.000051230192,
+        715.0000147521495
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]"
+      ],
+      "wt_per_ref_mu": [
+        194.86769104003906
+      ],
+      "wt_per_ref_sigma": [
+        121.4244155883789
+      ],
+      "wt_per_ref_n_valid": [
+        -1
+      ],
+      "wt_fallback_count": 1,
+      "mu_wt": 194.86769104003906,
+      "sigma_wt": 121.4244155883789,
+      "n_components_otsu2": 311,
+      "n_components_otsu3": 129,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F1e/sub-AS11F1e_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F1e/sub-AS11F1e_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F1e/sub-AS11F1e_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F1e/sub-AS11F1e_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F1e/sub-AS11F1e_patch00_qc.png",
+      "patch_id": "sub-AS11F1e_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F1e/sub-AS11F1e_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS11F4",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "hippocampus",
+      "center_phys": [
+        2.0800000429153442,
+        5.77200011909008,
+        -4.012799978256226
+      ],
+      "center_vox": [
+        1003.1999945640564,
+        1443.00002977252,
+        520.0000107288361
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1"
+      ],
+      "wt_per_ref_mu": [
+        257.4603271484375
+      ],
+      "wt_per_ref_sigma": [
+        21.701276779174805
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 257.4603271484375,
+      "sigma_wt": 21.701276779174805,
+      "n_components_otsu2": 96,
+      "n_components_otsu3": 51,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F4/sub-AS11F4_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F4/sub-AS11F4_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F4/sub-AS11F4_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F4/sub-AS11F4_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F4/sub-AS11F4_patch00_qc.png",
+      "patch_id": "sub-AS11F4_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS11F4/sub-AS11F4_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS39Me0",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "hippocampus",
+      "center_phys": [
+        8.892000183463097,
+        6.3440001308918,
+        -2.323199987411499
+      ],
+      "center_vox": [
+        580.7999968528748,
+        1586.00003272295,
+        2223.000045865774
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1"
+      ],
+      "wt_per_ref_mu": [
+        337.3081970214844
+      ],
+      "wt_per_ref_sigma": [
+        47.82328414916992
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 337.3081970214844,
+      "sigma_wt": 47.82328414916992,
+      "n_components_otsu2": 133,
+      "n_components_otsu3": 72,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me0/sub-AS39Me0_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me0/sub-AS39Me0_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me0/sub-AS39Me0_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me0/sub-AS39Me0_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me0/sub-AS39Me0_patch00_qc.png",
+      "patch_id": "sub-AS39Me0_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me0/sub-AS39Me0_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS39Me2",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "hippocampus",
+      "center_phys": [
+        5.252000108361244,
+        7.800000160932541,
+        -2.4287999868392944
+      ],
+      "center_vox": [
+        607.1999967098235,
+        1950.000040233135,
+        1313.000027090311
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1"
+      ],
+      "wt_per_ref_mu": [
+        238.8861541748047
+      ],
+      "wt_per_ref_sigma": [
+        57.35749816894531
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 238.8861541748047,
+      "sigma_wt": 57.35749816894531,
+      "n_components_otsu2": 170,
+      "n_components_otsu3": 93,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me2/sub-AS39Me2_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me2/sub-AS39Me2_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me2/sub-AS39Me2_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me2/sub-AS39Me2_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me2/sub-AS39Me2_patch00_qc.png",
+      "patch_id": "sub-AS39Me2_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS39Me2/sub-AS39Me2_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS8M4",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "cortex",
+      "center_phys": [
+        7.07200014591217,
+        -8.840000182390213,
+        -0.8447999954223633
+      ],
+      "center_vox": [
+        211.1999988555908,
+        2210.0000455975533,
+        1768.0000364780424
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]"
+      ],
+      "wt_per_ref_mu": [
+        194.86769104003906
+      ],
+      "wt_per_ref_sigma": [
+        121.4244155883789
+      ],
+      "wt_per_ref_n_valid": [
+        -1
+      ],
+      "wt_fallback_count": 1,
+      "mu_wt": 194.86769104003906,
+      "sigma_wt": 121.4244155883789,
+      "n_components_otsu2": 694,
+      "n_components_otsu3": 400,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS8M4/sub-AS8M4_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS8M4/sub-AS8M4_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS8M4/sub-AS8M4_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS8M4/sub-AS8M4_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS8M4/sub-AS8M4_patch00_qc.png",
+      "patch_id": "sub-AS8M4_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS8M4/sub-AS8M4_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS9F7",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "striatum",
+      "center_phys": [
+        7.748000159859657,
+        -6.084000125527382,
+        -6.019199967384338
+      ],
+      "center_vox": [
+        1504.7999918460846,
+        1521.0000313818455,
+        1937.000039964914
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]"
+      ],
+      "wt_per_ref_mu": [
+        194.86769104003906
+      ],
+      "wt_per_ref_sigma": [
+        121.4244155883789
+      ],
+      "wt_per_ref_n_valid": [
+        -1
+      ],
+      "wt_fallback_count": 1,
+      "mu_wt": 194.86769104003906,
+      "sigma_wt": 121.4244155883789,
+      "n_components_otsu2": 222,
+      "n_components_otsu3": 147,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch00_qc.png",
+      "patch_id": "sub-AS9F7_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS9F7",
+      "dataset": "mouse_app_lecanemab_ki3_batch2",
+      "region_group": "hippocampus",
+      "center_phys": [
+        8.78800018131733,
+        -10.24400021135807,
+        -4.822399973869324
+      ],
+      "center_vox": [
+        1205.599993467331,
+        2561.0000528395176,
+        2197.0000453293324
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]"
+      ],
+      "wt_per_ref_mu": [
+        194.86769104003906
+      ],
+      "wt_per_ref_sigma": [
+        121.4244155883789
+      ],
+      "wt_per_ref_n_valid": [
+        -1
+      ],
+      "wt_fallback_count": 1,
+      "mu_wt": 194.86769104003906,
+      "sigma_wt": 121.4244155883789,
+      "n_components_otsu2": 411,
+      "n_components_otsu3": 272,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch02_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch02_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch02_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch02_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch02_qc.png",
+      "patch_id": "sub-AS9F7_patch02",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch2/sub-AS9F7/sub-AS9F7_patch02_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-A37F4",
+      "dataset": "mouse_app_lecanemab_ki3_batch3",
+      "region_group": "cortex",
+      "center_phys": [
+        7.020000144839287,
+        -4.056000083684921,
+        -1.0212639980018139
+      ],
+      "center_vox": [
+        255.31599950045344,
+        1014.0000209212303,
+        1755.0000362098217
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        123.9334716796875
+      ],
+      "wt_per_ref_sigma": [
+        6.538205623626709
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 123.9334716796875,
+      "sigma_wt": 6.538205623626709,
+      "n_components_otsu2": 70,
+      "n_components_otsu3": 40,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-A37F4/sub-A37F4_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-A37F4/sub-A37F4_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-A37F4/sub-A37F4_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-A37F4/sub-A37F4_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-A37F4/sub-A37F4_patch00_qc.png",
+      "patch_id": "sub-A37F4_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-A37F4/sub-AS37F4_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS37F33",
+      "dataset": "mouse_app_lecanemab_ki3_batch3",
+      "region_group": "striatum",
+      "center_phys": [
+        6.968000143766403,
+        -6.760000139474869,
+        -2.5707679949700832
+      ],
+      "center_vox": [
+        642.6919987425208,
+        1690.0000348687172,
+        1742.0000359416008
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        609.7801513671875
+      ],
+      "wt_per_ref_sigma": [
+        72.50393676757812
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 609.7801513671875,
+      "sigma_wt": 72.50393676757812,
+      "n_components_otsu2": 13,
+      "n_components_otsu3": 6,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS37F33/sub-AS37F33_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS37F33/sub-AS37F33_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS37F33/sub-AS37F33_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS37F33/sub-AS37F33_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS37F33/sub-AS37F33_patch00_qc.png",
+      "patch_id": "sub-AS37F33_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS37F33/sub-AS37F33_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS38F3",
+      "dataset": "mouse_app_lecanemab_ki3_batch3",
+      "region_group": "cerebellum",
+      "center_phys": [
+        2.0800000429153442,
+        -12.948000267148018,
+        -2.500335995107889
+      ],
+      "center_vox": [
+        625.0839987769722,
+        3237.0000667870045,
+        520.0000107288361
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        525.4052734375
+      ],
+      "wt_per_ref_sigma": [
+        187.66604614257812
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 525.4052734375,
+      "sigma_wt": 187.66604614257812,
+      "n_components_otsu2": 111,
+      "n_components_otsu3": 76,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F3/sub-AS38F3_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F3/sub-AS38F3_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F3/sub-AS38F3_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F3/sub-AS38F3_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F3/sub-AS38F3_patch00_qc.png",
+      "patch_id": "sub-AS38F3_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F3/sub-AS38F3_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS38F4",
+      "dataset": "mouse_app_lecanemab_ki3_batch3",
+      "region_group": "striatum",
+      "center_phys": [
+        7.800000160932541,
+        -5.460000112652779,
+        -5.352831989526749
+      ],
+      "center_vox": [
+        1338.207997381687,
+        1365.0000281631947,
+        1950.000040233135
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        212.138427734375
+      ],
+      "wt_per_ref_sigma": [
+        183.0447998046875
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 212.138427734375,
+      "sigma_wt": 183.0447998046875,
+      "n_components_otsu2": 298,
+      "n_components_otsu3": 173,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F4/sub-AS38F4_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F4/sub-AS38F4_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F4/sub-AS38F4_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F4/sub-AS38F4_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F4/sub-AS38F4_patch00_qc.png",
+      "patch_id": "sub-AS38F4_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS38F4/sub-AS38F4_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS39Me1",
+      "dataset": "mouse_app_lecanemab_ki3_batch3",
+      "region_group": "striatum",
+      "center_phys": [
+        2.392000049352646,
+        -7.956000164151192,
+        -4.0850559920072556
+      ],
+      "center_vox": [
+        1021.2639980018138,
+        1989.000041037798,
+        598.0000123381615
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        558.7698974609375
+      ],
+      "wt_per_ref_sigma": [
+        126.22509002685547
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 558.7698974609375,
+      "sigma_wt": 126.22509002685547,
+      "n_components_otsu2": 70,
+      "n_components_otsu3": 39,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch00_qc.png",
+      "patch_id": "sub-AS39Me1_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS39Me1",
+      "dataset": "mouse_app_lecanemab_ki3_batch3",
+      "region_group": "cortex",
+      "center_phys": [
+        8.112000167369843,
+        -3.3800000697374344,
+        -3.0990079939365387
+      ],
+      "center_vox": [
+        774.7519984841346,
+        845.0000174343586,
+        2028.0000418424606
+      ],
+      "stain": "Abeta",
+      "stain_channel": 1,
+      "wt_references": [
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        498.7979736328125
+      ],
+      "wt_per_ref_sigma": [
+        235.28713989257812
+      ],
+      "wt_per_ref_n_valid": [
+        16777216
+      ],
+      "wt_fallback_count": 0,
+      "mu_wt": 498.7979736328125,
+      "sigma_wt": 235.28713989257812,
+      "n_components_otsu2": 169,
+      "n_components_otsu3": 76,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch01_qc.png",
+      "patch_id": "sub-AS39Me1_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_lecanemab_ki3_batch3/sub-AS39Me1/sub-AS39Me1_patch01_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS176F1",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "cortex",
+      "center_phys": [
+        8.840000182390213,
+        -4.47200009226799,
+        -3.7399999797344208
+      ],
+      "center_vox": [
+        934.9999949336053,
+        1118.0000230669973,
+        2210.0000455975533
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9[global]",
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        196.9829559326172,
+        234.1129150390625,
+        89.36431121826172,
+        244.3057861328125,
+        222.89303588867188,
+        194.86769104003906,
+        315.3217468261719
+      ],
+      "wt_per_ref_sigma": [
+        197.96112060546875,
+        311.498779296875,
+        1.1808069944381714,
+        126.91891479492188,
+        61.861392974853516,
+        121.4244155883789,
+        270.77301025390625
+      ],
+      "wt_per_ref_n_valid": [
+        -1,
+        16777216,
+        16777216,
+        16777216,
+        16777216,
+        -1,
+        16777216
+      ],
+      "wt_fallback_count": 2,
+      "mu_wt": 213.9783488682338,
+      "sigma_wt": 186.78430789718985,
+      "n_components_otsu2": 4,
+      "n_components_otsu3": 4,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F1/sub-AS176F1_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F1/sub-AS176F1_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F1/sub-AS176F1_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F1/sub-AS176F1_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F1/sub-AS176F1_patch00_qc.png",
+      "patch_id": "sub-AS176F1_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F1/sub-AS176F1_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS176F3",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "hippocampus",
+      "center_phys": [
+        6.1360001266002655,
+        -7.956000164151192,
+        -1.671999990940094
+      ],
+      "center_vox": [
+        417.99999773502356,
+        1989.000041037798,
+        1534.0000316500664
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9[global]",
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        196.9829559326172,
+        299.8795166015625,
+        212.49240112304688,
+        220.74090576171875,
+        275.91839599609375,
+        194.86769104003906,
+        572.39697265625
+      ],
+      "wt_per_ref_sigma": [
+        197.96112060546875,
+        340.3574523925781,
+        93.13177490234375,
+        68.41795349121094,
+        47.04296112060547,
+        121.4244155883789,
+        150.78884887695312
+      ],
+      "wt_per_ref_n_valid": [
+        -1,
+        16777216,
+        16777216,
+        16777216,
+        16777216,
+        -1,
+        16777216
+      ],
+      "wt_fallback_count": 2,
+      "mu_wt": 281.89697701590404,
+      "sigma_wt": 172.4116959757065,
+      "n_components_otsu2": 139,
+      "n_components_otsu3": 2,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F3/sub-AS176F3_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F3/sub-AS176F3_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F3/sub-AS176F3_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F3/sub-AS176F3_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F3/sub-AS176F3_patch00_qc.png",
+      "patch_id": "sub-AS176F3_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F3/sub-AS176F3_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS176F7",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "cerebellum",
+      "center_phys": [
+        7.280000150203705,
+        3.1200000643730164,
+        -3.8279999792575836
+      ],
+      "center_vox": [
+        956.999994814396,
+        780.0000160932541,
+        1820.0000375509262
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9",
+        "mouse_app_lecanemab_batch3/sub-AS161F3[global]",
+        "mouse_app_lecanemab_batch3/sub-AS164F5[global]",
+        "mouse_app_lecanemab_batch3/sub-AS168F1[global]",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3[global]",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6[global]"
+      ],
+      "wt_per_ref_mu": [
+        246.33026123046875,
+        183.0408477783203,
+        155.8275604248047,
+        169.41506958007812,
+        185.79568481445312,
+        352.4789733886719,
+        342.8013916015625
+      ],
+      "wt_per_ref_sigma": [
+        310.0264892578125,
+        170.92071533203125,
+        110.94270324707031,
+        214.3408966064453,
+        111.24586486816406,
+        57.07450485229492,
+        271.9856872558594
+      ],
+      "wt_per_ref_n_valid": [
+        16777216,
+        -1,
+        -1,
+        -1,
+        -1,
+        16777216,
+        -1
+      ],
+      "wt_fallback_count": 5,
+      "mu_wt": 233.6699698311942,
+      "sigma_wt": 197.55287681291188,
+      "n_components_otsu2": 28,
+      "n_components_otsu3": 17,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch00_qc.png",
+      "patch_id": "sub-AS176F7_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS176F7",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "cortex",
+      "center_phys": [
+        10.08800020813942,
+        4.992000102996826,
+        -2.2439999878406525
+      ],
+      "center_vox": [
+        560.9999969601632,
+        1248.0000257492065,
+        2522.0000520348544
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9",
+        "mouse_app_lecanemab_batch3/sub-AS161F3[global]",
+        "mouse_app_lecanemab_batch3/sub-AS164F5[global]",
+        "mouse_app_lecanemab_batch3/sub-AS168F1[global]",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3[global]",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6[global]"
+      ],
+      "wt_per_ref_mu": [
+        77.69611358642578,
+        183.0408477783203,
+        155.8275604248047,
+        169.41506958007812,
+        185.79568481445312,
+        242.25970458984375,
+        342.8013916015625
+      ],
+      "wt_per_ref_sigma": [
+        6.437659740447998,
+        170.92071533203125,
+        110.94270324707031,
+        214.3408966064453,
+        111.24586486816406,
+        117.01520538330078,
+        271.9856872558594
+      ],
+      "wt_per_ref_n_valid": [
+        16384000,
+        -1,
+        -1,
+        -1,
+        -1,
+        16777216,
+        -1
+      ],
+      "wt_fallback_count": 5,
+      "mu_wt": 193.8337674822126,
+      "sigma_wt": 163.68526095073588,
+      "n_components_otsu2": 8,
+      "n_components_otsu3": 7,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch01_qc.png",
+      "patch_id": "sub-AS176F7_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS176F7/sub-AS176F7_patch01_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS177M2",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "striatum",
+      "center_phys": [
+        3.016000062227249,
+        -4.784000098705292,
+        -5.763999968767166
+      ],
+      "center_vox": [
+        1440.9999921917918,
+        1196.000024676323,
+        754.0000155568123
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9[global]",
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        196.9829559326172,
+        90.36661529541016,
+        88.38258361816406,
+        114.6796646118164,
+        189.10946655273438,
+        194.86769104003906,
+        126.8315200805664
+      ],
+      "wt_per_ref_sigma": [
+        197.96112060546875,
+        1.6104516983032227,
+        1.2595213651657104,
+        176.65122985839844,
+        137.01358032226562,
+        121.4244155883789,
+        7.798132419586182
+      ],
+      "wt_per_ref_n_valid": [
+        -1,
+        16056320,
+        16777216,
+        16777216,
+        16777216,
+        -1,
+        16777216
+      ],
+      "wt_fallback_count": 2,
+      "mu_wt": 143.0314995901925,
+      "sigma_wt": 121.875734719273,
+      "n_components_otsu2": 7,
+      "n_components_otsu3": 4,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M2/sub-AS177M2_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M2/sub-AS177M2_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M2/sub-AS177M2_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M2/sub-AS177M2_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M2/sub-AS177M2_patch00_qc.png",
+      "patch_id": "sub-AS177M2_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M2/sub-AS177M2_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS177M3",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "cortex",
+      "center_phys": [
+        2.6520124040544033,
+        -4.47200009226799,
+        -2.1559999883174896
+      ],
+      "center_vox": [
+        538.9999970793724,
+        1118.0000230669973,
+        663.0031010136007
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9[global]",
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        196.9829559326172,
+        91.49200439453125,
+        89.31058502197266,
+        95.12944030761719,
+        227.50198364257812,
+        194.86769104003906,
+        126.18046569824219
+      ],
+      "wt_per_ref_sigma": [
+        197.96112060546875,
+        1.2259234189987183,
+        1.010140299797058,
+        132.9176025390625,
+        98.568115234375,
+        121.4244155883789,
+        5.763821601867676
+      ],
+      "wt_per_ref_n_valid": [
+        -1,
+        16777216,
+        16777216,
+        16777216,
+        16777216,
+        -1,
+        16777216
+      ],
+      "wt_fallback_count": 2,
+      "mu_wt": 145.9235894339425,
+      "sigma_wt": 107.80339332656477,
+      "n_components_otsu2": 12,
+      "n_components_otsu3": 9,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch00_qc.png",
+      "patch_id": "sub-AS177M3_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS177M3",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "cerebellum",
+      "center_phys": [
+        4.4720209166407585,
+        -10.81600022315979,
+        -0.7039999961853027
+      ],
+      "center_vox": [
+        175.9999990463257,
+        2704.0000557899475,
+        1118.0052291601896
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9[global]",
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        196.9829559326172,
+        274.5333251953125,
+        237.3105010986328,
+        267.18115234375,
+        264.30126953125,
+        194.86769104003906,
+        624.915283203125
+      ],
+      "wt_per_ref_sigma": [
+        197.96112060546875,
+        220.50741577148438,
+        60.900447845458984,
+        391.86981201171875,
+        174.14527893066406,
+        121.4244155883789,
+        173.44300842285156
+      ],
+      "wt_per_ref_n_valid": [
+        -1,
+        16777216,
+        16777216,
+        16777216,
+        16777216,
+        -1,
+        16777216
+      ],
+      "wt_fallback_count": 2,
+      "mu_wt": 294.2988826206752,
+      "sigma_wt": 213.88778227347427,
+      "n_components_otsu2": 20,
+      "n_components_otsu3": 10,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch01_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch01_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch01_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch01_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch01_qc.png",
+      "patch_id": "sub-AS177M3_patch01",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M3/sub-AS177M3_patch01_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    },
+    {
+      "subject_id": "sub-AS177M4",
+      "dataset": "mouse_app_vaccine_batch",
+      "region_group": "striatum",
+      "center_phys": [
+        4.524000093340874,
+        -7.332000151276588,
+        -4.399999976158142
+      ],
+      "center_vox": [
+        1099.9999940395357,
+        1833.0000378191469,
+        1131.0000233352184
+      ],
+      "stain": "Abeta",
+      "stain_channel": 0,
+      "wt_references": [
+        "mouse_app_lecanemab_batch2/sub-AS118M9[global]",
+        "mouse_app_lecanemab_batch3/sub-AS161F3",
+        "mouse_app_lecanemab_batch3/sub-AS164F5",
+        "mouse_app_lecanemab_batch3/sub-AS168F1",
+        "mouse_app_lecanemab_ki3_batch1/sub-AS7F3",
+        "mouse_app_lecanemab_ki3_batch2/sub-AS7F1[global]",
+        "mouse_app_lecanemab_ki3_batch3/sub-C57BL6"
+      ],
+      "wt_per_ref_mu": [
+        196.9829559326172,
+        370.0078430175781,
+        230.2580108642578,
+        237.96246337890625,
+        277.98126220703125,
+        194.86769104003906,
+        649.9513549804688
+      ],
+      "wt_per_ref_sigma": [
+        197.96112060546875,
+        30.928123474121094,
+        33.42671585083008,
+        27.057201385498047,
+        27.326400756835938,
+        121.4244155883789,
+        118.25382232666016
+      ],
+      "wt_per_ref_n_valid": [
+        -1,
+        16777216,
+        16777216,
+        16777216,
+        16777216,
+        -1,
+        16777216
+      ],
+      "wt_fallback_count": 2,
+      "mu_wt": 308.28736877441406,
+      "sigma_wt": 101.04396422672292,
+      "n_components_otsu2": 9,
+      "n_components_otsu3": 20,
+      "raw_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M4/sub-AS177M4_patch00_crop128.nii.gz",
+      "normalized_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M4/sub-AS177M4_patch00_normalized128.nii.gz",
+      "seg_otsu2_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M4/sub-AS177M4_patch00_seg_otsu2.nii.gz",
+      "seg_otsu3_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M4/sub-AS177M4_patch00_seg_otsu3.nii.gz",
+      "qc_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M4/sub-AS177M4_patch00_qc.png",
+      "patch_id": "sub-AS177M4_patch00",
+      "seg_gold_path": "/nfs/trident3/lightsheet/khan/arshya_gt_patches/ft_normalized/Abeta/mouse_app_vaccine_batch/sub-AS177M4/sub-AS177M4_patch00_seg_gold.nii.gz",
+      "gold_kind": "reviewed"
+    }
+  ]
+}
