@@ -92,9 +92,11 @@ if [ "$TEST_MODE" -eq 1 ]; then
   exit 0
 fi
 
-# Names already in the queue (running or pending), untruncated.
-QUEUED="$(squeue -u "$USER" -h -o '%200j' 2>/dev/null)"
-n_active="$(echo "$QUEUED" | grep -c "^${JOB_PREFIX}_" || true)"
+# Names already in the queue (running or pending). Use bare '%j' (full name, NO
+# padding) and strip any trailing whitespace — '%200j' left-pads to 200 chars,
+# which breaks the exact-match skip below and lets duplicates slip through.
+QUEUED="$(squeue -u "$USER" -h -o '%j' 2>/dev/null | sed 's/[[:space:]]*$//')"
+n_active="$(printf '%s\n' "$QUEUED" | grep -c "^${JOB_PREFIX}_" || true)"
 
 n_done=0; n_run=0; n_sub=0; n_pend=0; total=0
 echo "=== v4 sweep launcher ===  cap=${MAX_CONCURRENT}  active=${n_active}  manifest=${MANIFEST}"
@@ -110,7 +112,7 @@ for enc in simclr nnbyol3d; do
         if [ -f "${save_dir}/DONE" ]; then
           n_done=$((n_done+1)); continue
         fi
-        if echo "$QUEUED" | grep -qx "$run_name"; then
+        if printf '%s\n' "$QUEUED" | grep -qxF "$run_name"; then
           n_run=$((n_run+1)); continue
         fi
         if [ "$STATUS_ONLY" -eq 1 ]; then

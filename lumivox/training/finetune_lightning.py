@@ -284,10 +284,26 @@ def main():
         fast_dev_run=args.fast_dev_run,
     )
 
-    # Auto-resume: if a previous (interrupted) run left a last.ckpt in save-dir,
-    # resume from it so re-launching a timed-out job continues instead of restarting.
-    resume_ckpt = Path(args.save_dir) / "last.ckpt"
-    ckpt_path = str(resume_ckpt) if resume_ckpt.exists() and not args.fast_dev_run else None
+    # Auto-resume, hardened against a corrupt/torn checkpoint (e.g. a job killed
+    # mid-write, or a stray duplicate that read last.ckpt while it was being
+    # written). Verify each candidate is a valid zip archive before handing it to
+    # Lightning; if last.ckpt is bad, fall back to the newest valid epoch
+    # checkpoint, else start fresh.
+    import zipfile
+    ckpt_path = None
+    if not args.fast_dev_run:
+        save_dir_p = Path(args.save_dir)
+        candidates = [save_dir_p / "last.ckpt"] + sorted(
+            save_dir_p.glob("finetune-epoch*.ckpt"),
+            key=lambda p: p.stat().st_mtime, reverse=True,
+        )
+        for c in candidates:
+            if not c.exists():
+                continue
+            if zipfile.is_zipfile(c):
+                ckpt_path = str(c)
+                break
+            print(f"WARNING: {c} is corrupt/unreadable — skipping it for resume")
     if ckpt_path:
         print(f"Resuming from {ckpt_path}")
 
